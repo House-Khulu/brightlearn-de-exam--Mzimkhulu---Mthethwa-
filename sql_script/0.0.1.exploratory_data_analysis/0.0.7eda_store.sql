@@ -45,9 +45,9 @@
   SELECT * FROM [stg_brightlearn_sales].[dbo].[brightLearn_raw_data];
 
 
-  -----------------------------
-  --Checking distinct customers
-  -----------------------------
+  ------------------------------
+  --Checking distinct store info
+  ------------------------------
 
   SELECT DISTINCT [cashier_name]
        ,[store_name]

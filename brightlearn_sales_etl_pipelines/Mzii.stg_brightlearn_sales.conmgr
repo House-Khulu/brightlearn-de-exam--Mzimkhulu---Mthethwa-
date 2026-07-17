@@ -1,0 +1,12 @@
+﻿<?xml version="1.0"?>
+<DTS:ConnectionManager xmlns:DTS="www.microsoft.com/SqlServer/Dts"
+  DTS:ObjectName="Mzii.stg_brightlearn_sales"
+  DTS:DTSID="{A9101676-7108-44EF-9D91-05CE30EF5B13}"
+  DTS:CreationName="OLEDB">
+  <DTS:ObjectData>
+    <DTS:ConnectionManager
+      DTS:ConnectRetryCount="1"
+      DTS:ConnectRetryInterval="5"
+      DTS:ConnectionString="Data Source=Mzii;Initial Catalog=stg_brightlearn_sales;Provider=SQLOLEDB.1;Integrated Security=SSPI;Application Name=SSIS-{A9101676-7108-44EF-9D91-05CE30EF5B13}Mzii.stg_brightlearn_sales;" />
+  </DTS:ObjectData>
+</DTS:ConnectionManager>

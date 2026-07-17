@@ -41,6 +41,9 @@ CREATE TABLE [dbo].[brightLearn_raw_data](
 ) ON [PRIMARY]
 GO
 
-/*=============================================================================================
-Insight: only the transaction_date and qty, the dataypes are of nvarchar, need to be converted
-===============================================================================================
+/*================================================================================
+Insight: 
+- The transaction_date and qty, the dataypes are of nvarchar, need to be converted
+- The rest of the FLOAT data types attributes, needs to be converted to DECIMAL for,
+  since we are dealing with business numbers and we need precise numbers
+==================================================================================

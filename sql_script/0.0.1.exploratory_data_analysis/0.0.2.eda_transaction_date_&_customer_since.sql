@@ -49,7 +49,7 @@ SELECT [transaction_date]
   -------------------------------------------------------
   SELECT [transaction_date] 
   FROM [stg_brightlearn_sales].[dbo].[brightLearn_raw_data]
-  ORDER BY [transaction_date] ASC;
+  ORDER BY [transaction_date];
 
 
   /*=================================================
@@ -89,7 +89,7 @@ SELECT [transaction_date]
   ---------------------------------------
   SELECT [customer_since] 
   FROM [stg_brightlearn_sales].[dbo].[brightLearn_raw_data]
-  ORDER BY [customer_since] ASC;
+  ORDER BY [customer_since];
 
   /*====================================================================================
   Insight: 5 000 rows

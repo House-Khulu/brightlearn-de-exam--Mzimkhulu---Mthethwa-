@@ -52,7 +52,8 @@
          [customer_first_name]
         ,[customer_last_name]
         ,[customer_email]
-        ,[customer_phone]      
+        ,[customer_phone]
+         [customer_loyalty_tier]
   FROM [stg_brightlearn_sales].[dbo].[brightLearn_raw_data];
 
 
@@ -70,7 +71,7 @@
   and customer_last_name)
   ====================================================================================*/
 
-  SELECT [customer_first_name],
+  SELECT DISTINCT [customer_first_name],
          [customer_last_name],
   COUNT(*) AS number_of_counts
   FROM [stg_brightlearn_sales].[dbo].[brightLearn_raw_data]
@@ -99,6 +100,9 @@
   FROM [stg_brightlearn_sales].[dbo].[brightLearn_raw_data]
   GROUP BY [customer_email];
 
+  /*==============
+  Insight: 46 Rows
+  ===============*/
 
   SELECT DISTINCT [customer_phone] FROM [stg_brightlearn_sales].[dbo].[brightLearn_raw_data];
 
@@ -106,6 +110,10 @@
   COUNT(*) AS number_of_cell_numbers
   FROM [stg_brightlearn_sales].[dbo].[brightLearn_raw_data]
   GROUP BY [customer_phone];
+
+  /*==============
+  Insight: 51 Rows
+  ===============*/
 
 
   SELECT DISTINCT [customer_loyalty_tier] FROM [stg_brightlearn_sales].[dbo].[brightLearn_raw_data];
@@ -115,6 +123,10 @@
   COUNT(*) AS number_of_cell_numbers
   FROM [stg_brightlearn_sales].[dbo].[brightLearn_raw_data]
   GROUP BY [customer_loyalty_tier];
+
+  /*==============
+  Insight: 4 Rows
+  ===============*/
 
 
   -----------------------------------------------

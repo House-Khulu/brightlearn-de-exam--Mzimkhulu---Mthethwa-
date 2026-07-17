@@ -42,7 +42,7 @@ SELECT [transaction_date]
 
 
   /*=========================================
-  Exploratory Data Analysis: payment_methodd
+  Exploratory Data Analysis: payment_method
   ==========================================*/
 
 

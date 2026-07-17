@@ -1,6 +1,4 @@
-/*=====================================================
-  Exploratory Data Analysis: customer_loyalty_tier info
-  ====================================================*/
+
 /* ======================================
    Exploratory Data Analysis on : Metrics
    ====================================== */
@@ -131,10 +129,14 @@ SELECT [transaction_date]
   GROUP BY [transaction_amount];
 
 
+  SELECT TOP 10 * 
+  FROM [stg_brightlearn_sales].[dbo].[brightLearn_raw_data]
+  WHERE transaction_amount < 0;
 
-  -----------------------------------------------------------------------
-  --On transaction_amount Calculating average, minimum and maximum amount
-  -----------------------------------------------------------------------
+
+  ----------------------------------------------------------------------------
+  --On transaction_amount Calculating sum, average, minimum and maximum amount
+  ----------------------------------------------------------------------------
 
   SELECT SUM([transaction_amount]) AS total_revenue,
          AVG([transaction_amount]) AS average_amount,
@@ -161,7 +163,7 @@ SELECT [transaction_date]
   WHERE [transaction_amount] < 0;
 
   /*=================
-  Insight: 61 785.21
+  Insight: -61 785.21
   ===================*/
 
 
