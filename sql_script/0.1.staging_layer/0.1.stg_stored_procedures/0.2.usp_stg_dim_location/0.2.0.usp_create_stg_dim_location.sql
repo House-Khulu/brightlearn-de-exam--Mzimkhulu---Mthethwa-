@@ -7,6 +7,11 @@ AS
 BEGIN
     SET NOCOUNT ON;
 
+/* =========================================================================
+   CREATE stg_dim_location Table using the IF NOT EXISTS clause (SAFE RERUN)
+   Database : stg_brightlearn_sales
+   Schema   : dbo
+   ========================================================================= */
     IF OBJECT_ID('[stg_brightlearn_sales].[dbo].[stg_dim_location]', 'U') IS NULL
 BEGIN
 

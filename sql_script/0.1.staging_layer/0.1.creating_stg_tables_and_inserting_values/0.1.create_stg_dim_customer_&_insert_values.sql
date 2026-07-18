@@ -11,7 +11,7 @@ SELECT DISTINCT
  
 
 /* =========================================================================
-   CREATE stg_dim_location Table using the IF NOT EXISTS clause (SAFE RERUN)
+   CREATE stg_dim_customer Table using the IF NOT EXISTS clause (SAFE RERUN)
    Database : stg_brightlearn_sales
    Schema   : dbo
    ========================================================================= */
