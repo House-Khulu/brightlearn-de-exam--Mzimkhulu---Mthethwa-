@@ -2,8 +2,7 @@
 --Checking for distinct store
 -----------------------------
  SELECT DISTINCT 
-        [cashier_name]
-       ,[store_name]
+        [store_name]
        ,[store_city]
        ,[store_province]
        ,[store_region]
@@ -21,13 +20,11 @@ BEGIN
 
     CREATE TABLE [stg_brightlearn_sales].[dbo].[stg_dim_store] (
 
-        [store_key] INT IDENTITY(1,1) PRIMARY KEY NOT NULL,
-        [cashier_name] VARCHAR (100) NOT NULL, 
-        [store_name] VARCHAR (100) NOT NULL,
-        [store_city] VARCHAR (100) NOT NULL,
-        [store_province] VARCHAR (100) NOT NULL,
-        [store_region] VARCHAR (100) NOT NULL,
-        [store_manager] VARCHAR (100) NOT NULL,
+        [store_name] [nvarchar](50) NOT NULL,
+	    [store_city] [nvarchar](50) NOT NULL,
+	    [store_province] [nvarchar](50) NOT NULL,
+	    [store_region] [nvarchar](50) NOT NULL,
+	    [store_manager] [nvarchar](50) NOT NULL,
         [created_date] DATETIME2(0) NOT NULL DEFAULT GETDATE(),
         [modified_date] DATETIME2(0) NOT NULL DEFAULT GETDATE()
     );
@@ -42,8 +39,7 @@ END;
 
 INSERT INTO [stg_brightlearn_sales].[dbo].[stg_dim_store]
 (
-           [cashier_name]
-          ,[store_name]
+           [store_name]
           ,[store_city]
           ,[store_province]
           ,[store_region]
@@ -52,7 +48,6 @@ INSERT INTO [stg_brightlearn_sales].[dbo].[stg_dim_store]
 
 
 SELECT DISTINCT
-           r.[cashier_name],
            r.[store_name],
            r.[store_city],
            r.[store_province],
@@ -64,8 +59,7 @@ WHERE NOT EXISTS
 (
     SELECT 1
     FROM [stg_brightlearn_sales].[dbo].[stg_dim_store] s
-    WHERE s.[cashier_name] = r.[cashier_name]
-      AND s.[store_name] = r.[store_name]
+    WHERE s.[store_name] = r.[store_name]
       AND s.[store_city] = r.[store_city]
       AND s.[store_province] = r.[store_province]
       AND s.[store_region] = r.[store_region]

@@ -26,11 +26,11 @@
           <SSIS:Property SSIS:Name="CreatorComputerName">MZII</SSIS:Property>
           <SSIS:Property SSIS:Name="Description">
           </SSIS:Property>
-          <SSIS:Property SSIS:Name="PasswordVerifier" SSIS:Sensitive="1">AQAAANCMnd8BFdERjHoAwE/Cl+sBAAAAD1F1JJS3fkWBD0Ap3dzMBwAAAAACAAAAAAAQZgAAAAEAACAAAABDZmDouxREX7t4RACm7wg2ysRW+wEOQxxhAtxFO9Nb+QAAAAAOgAAAAAIAACAAAAAw3Tku2NgNlFzUeEih97KI2SHVDOnwOtV0Ac+ow4ZjopAAAAC0FQUhXZ/N6s1Kmo4gytrEc82DbgODD2L0Dxprr46Cn+mT/FXEFTQ4D9oGSyi2UxfUfz5AFtUxFKD4GAaRm4ho9gfZHBD6wszLdAMn8UFgcgD7AZp76vTYpFnICVlrLBmqNAUoIj4jsbEN8wld55LrkrB5cnYOEnwXwFIsD7qE1Bfrz/Iys2NtcO3T04Qc0SpAAAAAdCLkfpsFt/4LoU6fUz+wj4OPCFgcUVRzrmzEU08lURNqc3wsQk0sQ7xicwYeYnATMbfb6W2dKQ+LD5tiIos5LQ==</SSIS:Property>
+          <SSIS:Property SSIS:Name="PasswordVerifier" SSIS:Sensitive="1">AQAAANCMnd8BFdERjHoAwE/Cl+sBAAAAD1F1JJS3fkWBD0Ap3dzMBwAAAAACAAAAAAAQZgAAAAEAACAAAAD6eF4kPfcgNgZrrnX/0G4eT1TfqM+UPyKz3sW7xP5CYQAAAAAOgAAAAAIAACAAAADPWezD23JrDeido3ysGfjH9v+g07HEnEUuH+rGv+gCzpAAAABSapXBBvnkjalsZQnDpjjygjAbtLjEfIhBlgaRNAXt+T6mhiR822H7LCPmdTKAjlj8qMORx8RYLUzpo+3yGRkrS5+oUc2bfiK9ax8T8WnjQ7NUQEtAfYMVvHYecGT+EeBr/BfARRXHLyBtgGtTokhDmSiS00aUJizjE4r3dWCOfysP5z6MzTT+cx61pbsDjPlAAAAAkGnMufrVIv+2eW1qewWBPJZo+OfzCYfJTR9EJW03WgUGQ4QpSKJUTe40JTf5mBy9bKv5d4TI3ljXYJkcHMnE7g==</SSIS:Property>
           <SSIS:Property SSIS:Name="FormatVersion">1</SSIS:Property>
         </SSIS:Properties>
         <SSIS:Packages>
-          <SSIS:Package SSIS:Name="0.1.load_raw_data_into_stg_db.dtsx" SSIS:EntryPoint="1" />
+          <SSIS:Package SSIS:Name="0.1.load_raw_data_into_staging_database.dtsx" SSIS:EntryPoint="1" />
         </SSIS:Packages>
         <SSIS:ConnectionManagers>
           <SSIS:ConnectionManager SSIS:Name="Mzii.dwh_brightlearn_sales.conmgr" />
@@ -336,16 +336,16 @@
             </SSIS:Parameter>
           </SSIS:ProjectConnectionParameters>
           <SSIS:PackageInfo>
-            <SSIS:PackageMetaData SSIS:Name="0.1.load_raw_data_into_stg_db.dtsx">
+            <SSIS:PackageMetaData SSIS:Name="0.1.load_raw_data_into_staging_database.dtsx">
               <SSIS:Properties>
                 <SSIS:Property SSIS:Name="ID">{6E5C05ED-A2F6-454E-BAB1-820FF887BA09}</SSIS:Property>
                 <SSIS:Property SSIS:Name="Name">Package1</SSIS:Property>
                 <SSIS:Property SSIS:Name="VersionMajor">1</SSIS:Property>
                 <SSIS:Property SSIS:Name="VersionMinor">0</SSIS:Property>
-                <SSIS:Property SSIS:Name="VersionBuild">7</SSIS:Property>
+                <SSIS:Property SSIS:Name="VersionBuild">8</SSIS:Property>
                 <SSIS:Property SSIS:Name="VersionComments">
                 </SSIS:Property>
-                <SSIS:Property SSIS:Name="VersionGUID">{CCAE4074-DAC7-45AB-B226-369C7FD418D0}</SSIS:Property>
+                <SSIS:Property SSIS:Name="VersionGUID">{36AECD0F-21C0-49E8-B4FE-97AED5AACA23}</SSIS:Property>
                 <SSIS:Property SSIS:Name="PackageFormatVersion">8</SSIS:Property>
                 <SSIS:Property SSIS:Name="Description">
                 </SSIS:Property>

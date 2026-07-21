@@ -17,7 +17,6 @@
 INSERT INTO [stg_brightlearn_sales].[dbo].[stg_dim_product]
 (
           [product_name]
-         ,[category]
          ,[sub_category]
          ,[sku]
          ,[supplier]
@@ -25,7 +24,6 @@ INSERT INTO [stg_brightlearn_sales].[dbo].[stg_dim_product]
 
 SELECT DISTINCT
            r.[product_name],
-  COALESCE(r.[category], 'Unknown'),
            r.[sub_category],
            r.[sku],
            r.[supplier]
@@ -36,7 +34,6 @@ WHERE NOT EXISTS
     SELECT 1
     FROM [stg_brightlearn_sales].[dbo].[stg_dim_product] p
     WHERE p.[product_name] = r.[product_name]
-      AND p.[category] = r.[category]
       AND p.[sub_category] = r.[sub_category]
       AND p.[sku] = r.[sku]
       AND p.[supplier] = r.[supplier]

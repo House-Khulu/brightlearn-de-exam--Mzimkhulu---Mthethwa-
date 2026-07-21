@@ -12,18 +12,17 @@ BEGIN
    Database : stg_brightlearn_sales
    Schema   : dbo
    ========================================================================= */
-
-    IF OBJECT_ID('[stg_brightlearn_sales].[dbo].[stg_dim_customer]', 'U') IS NULL
+IF OBJECT_ID('[stg_brightlearn_sales].[dbo].[stg_dim_customer]', 'U') IS NULL
 BEGIN
 
     CREATE TABLE [stg_brightlearn_sales].[dbo].[stg_dim_customer] (
 
-        [customer_key] INT IDENTITY(1,1) PRIMARY KEY NOT NULL,
-        [customer_first_name] VARCHAR (100) NOT NULL,
-        [customer_last_name] VARCHAR (100) NOT NULL,
-        [customer_email] VARCHAR (100) NOT NULL,
-        [customer_phone] INT,
-        [customer_loyalty_tier] VARCHAR (100) NOT NULL,
+        [customer_first_name] [nvarchar](50) NULL,
+        [customer_last_name] [nvarchar](50) NULL,
+        [customer_phone] INT NULL,
+        [customer_city] [nvarchar](50) NULL,
+	    [customer_province] [nvarchar](50) NULL,
+        [customer_loyalty_tier] [nvarchar](50) NULL,
         [created_date] DATETIME2(0) NOT NULL DEFAULT GETDATE(),
         [modified_date] DATETIME2(0) NOT NULL DEFAULT GETDATE()
     );

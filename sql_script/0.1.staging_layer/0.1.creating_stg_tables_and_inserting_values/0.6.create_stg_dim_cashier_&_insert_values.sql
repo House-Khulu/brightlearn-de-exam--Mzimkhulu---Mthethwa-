@@ -1,22 +1,21 @@
 --------------------------------------
---Checking for distinct payment method
+--Checking for distinct cashier_name
 --------------------------------------
-  SELECT DISTINCT [payment_method]
+  SELECT DISTINCT [cashier_name]
   FROM [stg_brightlearn_sales].[dbo].[brightLearn_raw_data];
 
 /* =========================================================================
-   CREATE stg_dim_payment_method Table using the IF NOT EXISTS clause (SAFE RERUN)
+   CREATE stg_dim_cashier Table using the IF NOT EXISTS clause (SAFE RERUN)
    Database : stg_brightlearn_sales
    Schema   : dbo
    ========================================================================= */
 
-IF OBJECT_ID('[stg_brightlearn_sales].[dbo].[stg_dim_payment_method]', 'U') IS NULL
+IF OBJECT_ID('[stg_brightlearn_sales].[dbo].[stg_dim_cashier ]', 'U') IS NULL
 BEGIN
 
-    CREATE TABLE [stg_brightlearn_sales].[dbo].[stg_dim_payment_method] (
+    CREATE TABLE [stg_brightlearn_sales].[dbo].[stg_dim_cashier] (
 
-        [payment_method_key] INT IDENTITY(1,1) PRIMARY KEY NOT NULL,
-        [payment_method] VARCHAR (100) NOT NULL,
+        [cashier_name] [nvarchar](50) NOT NULL,
         [created_date] DATETIME2(0) NOT NULL DEFAULT GETDATE(),
         [modified_date] DATETIME2(0) NOT NULL DEFAULT GETDATE()
     );
@@ -24,33 +23,33 @@ BEGIN
 END;
 
 /* ===================================================================
-   INSERT INTO stg_dim_payment_method (SAFE RERUN)
+   INSERT INTO stg_dim_cashier (SAFE RERUN)
    1.Used the SELECT DISTINCT Clause to return only unique values
    2.Then used the WHERE NOT EXISTS clause to avoid data duplication
    =================================================================== */
 
-INSERT INTO [stg_brightlearn_sales].[dbo].[stg_dim_payment_method]
+INSERT INTO [stg_brightlearn_sales].[dbo].[stg_dim_cashier]
 (
-        [payment_method]
+        [cashier_name]
 )
 
 
-SELECT DISTINCT r.[payment_method]
+SELECT DISTINCT r.[cashier_name]
 
 FROM [stg_brightlearn_sales].[dbo].[brightlearn_raw_data] r
 WHERE NOT EXISTS
 (
     SELECT 1
-    FROM [stg_brightlearn_sales].[dbo].[stg_dim_payment_method] p
-    WHERE p.[payment_method] = r.[payment_method]
+    FROM [stg_brightlearn_sales].[dbo].[stg_dim_cashier] c
+    WHERE c.[cashier_name] = r.[cashier_name]
    
 );
 GO
 
------------------------------
---View stg_dim_payment_method
------------------------------
+----------------------
+--View stg_dim_cashier 
+----------------------
 
-SELECT * FROM [stg_brightlearn_sales].[dbo].[stg_dim_payment_method];
+SELECT * FROM [stg_brightlearn_sales].[dbo].[stg_dim_cashier];
 
 
