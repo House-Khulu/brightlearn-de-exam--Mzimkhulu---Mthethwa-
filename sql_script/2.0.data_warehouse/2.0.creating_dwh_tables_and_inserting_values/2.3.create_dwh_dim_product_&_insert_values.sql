@@ -6,18 +6,18 @@
       ,[sub_category]
       ,[sku]
       ,[supplier]
-  FROM [stg_brightlearn_sales].[dbo].[stg_dim_product];
+  FROM [stg_brightlearn_sales].[dbo].[clean_dim_product];
 
 /* =========================================================================
-   CREATE clean_dim_product Table using the IF NOT EXISTS clause (SAFE RERUN)
-   Database : stg_brightlearn_sales
+   CREATE dwh_dim_product Table using the IF NOT EXISTS clause (SAFE RERUN)
+   Database : dwh_brightlearn_sales
    Schema   : dbo
    ========================================================================= */
 
-IF OBJECT_ID('[stg_brightlearn_sales].[dbo].[cleandim_product]', 'U') IS NULL
+IF OBJECT_ID('[dwh_brightlearn_sales].[dbo].[dwh_dim_product]', 'U') IS NULL
 BEGIN
 
-    CREATE TABLE [stg_brightlearn_sales].[dbo].[clean_dim_product] (
+    CREATE TABLE [dwh_brightlearn_sales].[dbo].[dwh_dim_product] (
 
         [product_key] INT IDENTITY(1,1) PRIMARY KEY NOT NULL,
         [product_name] [nvarchar](50) NOT NULL,
@@ -31,13 +31,12 @@ BEGIN
 END;
 
 /* ===================================================================
-   INSERT INTO clean_dim_product (SAFE RERUN)
+   INSERT INTO dwh_dim_product (SAFE RERUN)
    1.SELECT DISTINCT Clause to return only unique values
-   2.TRIM fucntion to remove unwanted spaces
-   3.WHERE NOT EXISTS clause to avoid data duplication
+   2.WHERE NOT EXISTS clause to avoid data duplication
    =================================================================== */
 
-INSERT INTO [stg_brightlearn_sales].[dbo].[clean_dim_product]
+INSERT INTO [dwh_brightlearn_sales].[dbo].[dwh_dim_product]
 (
           [product_name]
          ,[sub_category]
@@ -46,29 +45,29 @@ INSERT INTO [stg_brightlearn_sales].[dbo].[clean_dim_product]
 )
 
 SELECT DISTINCT
-           TRIM(UPPER(r.[product_name])) AS product_name,
-           TRIM(UPPER(r.[sub_category])) AS sub_category,
-           TRIM(UPPER(r.[sku])) AS SKU,
-           TRIM(UPPER(r.[supplier])) AS supplier
+           c.[product_name],
+           c.[sub_category],
+           c.[sku],
+           c.[supplier]
 
-FROM [stg_brightlearn_sales].[dbo].[stg_dim_product] r
+FROM [stg_brightlearn_sales].[dbo].[clean_dim_product] c
 WHERE NOT EXISTS
 (
     SELECT 1
-    FROM [stg_brightlearn_sales].[dbo].[clean_dim_product] p
-    WHERE p.[product_name] = r.[product_name]
-      AND p.[sub_category] = r.[sub_category]
-      AND p.[sku] = r.[sku]
-      AND p.[supplier] = r.[supplier]
+    FROM [dwh_brightlearn_sales].[dbo].[dwh_dim_product] dwh
+    WHERE dwh.[product_name] = c.[product_name]
+      AND dwh.[sub_category] = c.[sub_category]
+      AND dwh.[sku] = c.[sku]
+      AND dwh.[supplier] = c.[supplier]
       
 );
 GO
 
 -----------------------
---View clean_dim_product
+--View dwh_dim_product
 -----------------------
 
-SELECT * FROM [stg_brightlearn_sales].[dbo].[clean_dim_product];
+SELECT * FROM [dwh_brightlearn_sales].[dbo].[dwh_dim_product];
 
 
 

@@ -75,7 +75,7 @@ WHERE NOT EXISTS
 --------------------------
 --View dwh_dim_customer
 --------------------------
-TRUNCATE TABLE [dwh_brightlearn_sales].[dbo].[dwh_dim_customer];
+
 SELECT * FROM [dwh_brightlearn_sales].[dbo].[dwh_dim_customer];
 
 
