@@ -14,7 +14,7 @@
    Schema   : dbo
    ========================================================================= */
 
-IF OBJECT_ID('[stg_brightlearn_sales].[dbo].[cleandim_product]', 'U') IS NULL
+IF OBJECT_ID('[stg_brightlearn_sales].[dbo].[clean_dim_product]', 'U') IS NULL
 BEGIN
 
     CREATE TABLE [stg_brightlearn_sales].[dbo].[clean_dim_product] (

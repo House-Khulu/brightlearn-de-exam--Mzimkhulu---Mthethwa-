@@ -39,7 +39,6 @@ END;
    1.Used the SELECT DISTINCT Clause to return only unique values
    2.Then used the WHERE NOT EXISTS clause to avoid data duplication
    =================================================================== */
-
 INSERT INTO [stg_brightlearn_sales].[dbo].[stg_dim_customer]
 (
          [customer_first_name],

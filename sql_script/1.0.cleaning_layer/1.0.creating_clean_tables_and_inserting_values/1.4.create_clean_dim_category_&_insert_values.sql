@@ -42,7 +42,7 @@ WHERE NOT EXISTS
 (
     SELECT 1
     FROM [stg_brightlearn_sales].[dbo].[clean_dim_category] c
-    WHERE c.[category] = s.[category]
+    WHERE c.[category] = COALESCE(TRIM(UPPER(category)),'UNKNOWN')
    
 );
 GO
