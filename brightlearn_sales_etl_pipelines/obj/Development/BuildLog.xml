@@ -2,13 +2,18 @@
 <BuildLog xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
   <ProjectInfo>
     <Name>brightlearn_sales_etl_pipelines</Name>
-    <LastWriteTime>2026-07-15T02:47:36.6793855Z</LastWriteTime>
+    <LastWriteTime>2026-11-04T14:18:23.0962588Z</LastWriteTime>
     <LastKnownProtectionLevel>EncryptSensitiveWithUserKey</LastKnownProtectionLevel>
   </ProjectInfo>
   <LastBuildInfos>
     <ProjectBuildItemInfo>
       <Name>0.1.load_raw_data_into_staging_database.dtsx</Name>
-      <LastWriteTime>2026-07-20T23:51:49.6044307Z</LastWriteTime>
+      <LastWriteTime>2026-11-04T13:42:44.750706Z</LastWriteTime>
+      <LastKnownProtectionLevel>EncryptSensitiveWithUserKey</LastKnownProtectionLevel>
+    </ProjectBuildItemInfo>
+    <ProjectBuildItemInfo>
+      <Name>0.2.create_load_stg_dim_customer.dtsx</Name>
+      <LastWriteTime>2026-11-04T16:40:27.1961641Z</LastWriteTime>
       <LastKnownProtectionLevel>EncryptSensitiveWithUserKey</LastKnownProtectionLevel>
     </ProjectBuildItemInfo>
   </LastBuildInfos>

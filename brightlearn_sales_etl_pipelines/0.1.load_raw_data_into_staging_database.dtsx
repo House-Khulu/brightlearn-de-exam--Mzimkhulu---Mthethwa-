@@ -11,26 +11,26 @@
   DTS:LocaleID="1033"
   DTS:ObjectName="Package1"
   DTS:PackageType="5"
-  DTS:VersionBuild="8"
-  DTS:VersionGUID="{36AECD0F-21C0-49E8-B4FE-97AED5AACA23}">
+  DTS:VersionBuild="37"
+  DTS:VersionGUID="{8069C0A6-BBC7-447A-B862-A04C2A40ACA0}">
   <DTS:Property
     DTS:Name="PackageFormatVersion">8</DTS:Property>
   <DTS:ConnectionManagers>
     <DTS:ConnectionManager
-      DTS:refId="Package.ConnectionManagers[CSV File Connection]"
+      DTS:refId="Package.ConnectionManagers[Brightlearn CSV]"
       DTS:CreationName="FLATFILE"
-      DTS:DTSID="{EA592A6B-438A-4CBB-A282-6691C3AE0032}"
-      DTS:ObjectName="CSV File Connection">
+      DTS:DTSID="{C17D4281-ACA7-4C44-8A91-1991459B6002}"
+      DTS:ObjectName="Brightlearn CSV">
       <DTS:ObjectData>
         <DTS:ConnectionManager
           DTS:Format="Delimited"
-          DTS:LocaleID="1033"
+          DTS:LocaleID="7177"
           DTS:HeaderRowDelimiter="_x000D__x000A_"
           DTS:ColumnNamesInFirstDataRow="True"
           DTS:RowDelimiter=""
           DTS:TextQualifier="_x003C_none_x003E_"
           DTS:CodePage="1252"
-          DTS:ConnectionString="C:\Users\DELL\Desktop\brightlearn-de-exam-[Mzimkhulu]-[Mthethwa]\brightlearn-de-exam--Mzimkhulu---Mthethwa-\raw_data\brightLearn_raw_data.csv">
+          DTS:ConnectionString="C:\Users\House-Khulu\Desktop\PRJS\brightlearn-de-exam--Mzimkhulu---Mthethwa-\raw_data\brightLearn_raw_data.csv">
           <DTS:FlatFileColumns>
             <DTS:FlatFileColumn
               DTS:ColumnType="Delimited"
@@ -39,7 +39,7 @@
               DTS:DataType="130"
               DTS:TextQualified="True"
               DTS:ObjectName="transaction_date"
-              DTS:DTSID="{7AF4D957-0283-42D6-BC2F-02D5721CA380}"
+              DTS:DTSID="{9EF3F504-BF0E-457C-9C5F-35BEC280E24E}"
               DTS:CreationName="" />
             <DTS:FlatFileColumn
               DTS:ColumnType="Delimited"
@@ -48,7 +48,7 @@
               DTS:DataType="130"
               DTS:TextQualified="True"
               DTS:ObjectName="payment_method"
-              DTS:DTSID="{BF007180-19B2-49B4-AF15-D650F5B3C7DD}"
+              DTS:DTSID="{A645F011-771F-454F-9B63-50A8DEEE7751}"
               DTS:CreationName="" />
             <DTS:FlatFileColumn
               DTS:ColumnType="Delimited"
@@ -57,23 +57,25 @@
               DTS:DataType="130"
               DTS:TextQualified="True"
               DTS:ObjectName="cashier_name"
-              DTS:DTSID="{D59C7016-D994-4A19-84F3-F67147BD70A5}"
+              DTS:DTSID="{0A1BB8C2-00F2-4060-BD15-FFF64FB721DD}"
               DTS:CreationName="" />
             <DTS:FlatFileColumn
               DTS:ColumnType="Delimited"
               DTS:ColumnDelimiter="_x002C_"
-              DTS:DataType="5"
+              DTS:MaximumWidth="50"
+              DTS:DataType="130"
               DTS:TextQualified="True"
               DTS:ObjectName="transaction_amount"
-              DTS:DTSID="{5B39E9FA-9AAF-4F61-802D-AC29B851724F}"
+              DTS:DTSID="{B7B37817-D5A0-4116-B54E-49F3FC88BB44}"
               DTS:CreationName="" />
             <DTS:FlatFileColumn
               DTS:ColumnType="Delimited"
               DTS:ColumnDelimiter="_x002C_"
-              DTS:DataType="5"
+              DTS:MaximumWidth="50"
+              DTS:DataType="130"
               DTS:TextQualified="True"
               DTS:ObjectName="transaction_discount"
-              DTS:DTSID="{EB35D106-E5C0-4CDF-8BF3-4BAC3F45CBC5}"
+              DTS:DTSID="{8BA857A6-91F0-4E89-9907-BCC141AA6201}"
               DTS:CreationName="" />
             <DTS:FlatFileColumn
               DTS:ColumnType="Delimited"
@@ -82,7 +84,7 @@
               DTS:DataType="130"
               DTS:TextQualified="True"
               DTS:ObjectName="customer_first_name"
-              DTS:DTSID="{A37E69D1-AE6B-4CBD-8C86-8027A995B14D}"
+              DTS:DTSID="{60D35B48-FA66-4BF1-AC71-B6DBE74EBC3F}"
               DTS:CreationName="" />
             <DTS:FlatFileColumn
               DTS:ColumnType="Delimited"
@@ -91,7 +93,7 @@
               DTS:DataType="130"
               DTS:TextQualified="True"
               DTS:ObjectName="customer_last_name"
-              DTS:DTSID="{8A639021-869E-4E1D-ABF0-A6514F06153A}"
+              DTS:DTSID="{A5A6F785-9487-465A-9309-85C7B0B2DDEB}"
               DTS:CreationName="" />
             <DTS:FlatFileColumn
               DTS:ColumnType="Delimited"
@@ -100,7 +102,7 @@
               DTS:DataType="130"
               DTS:TextQualified="True"
               DTS:ObjectName="customer_email"
-              DTS:DTSID="{B4857C35-4E1A-40C8-8588-B365E7FB40C2}"
+              DTS:DTSID="{D183BE96-3CBE-4833-A4FE-C2BBF3FF997A}"
               DTS:CreationName="" />
             <DTS:FlatFileColumn
               DTS:ColumnType="Delimited"
@@ -108,7 +110,7 @@
               DTS:DataType="3"
               DTS:TextQualified="True"
               DTS:ObjectName="customer_phone"
-              DTS:DTSID="{8F112CED-D199-49DB-8319-0250F1856B91}"
+              DTS:DTSID="{04C0395B-8ABC-4A1A-87E7-07950F8A4239}"
               DTS:CreationName="" />
             <DTS:FlatFileColumn
               DTS:ColumnType="Delimited"
@@ -117,7 +119,7 @@
               DTS:DataType="130"
               DTS:TextQualified="True"
               DTS:ObjectName="customer_city"
-              DTS:DTSID="{2B81C7F3-D25C-46E4-9904-AE50F31E005E}"
+              DTS:DTSID="{BDA7B743-CF8E-416C-965E-1880A3A96A3A}"
               DTS:CreationName="" />
             <DTS:FlatFileColumn
               DTS:ColumnType="Delimited"
@@ -126,7 +128,7 @@
               DTS:DataType="130"
               DTS:TextQualified="True"
               DTS:ObjectName="customer_province"
-              DTS:DTSID="{A1D37145-C1FA-4289-81DB-AB222220758A}"
+              DTS:DTSID="{1CBDD078-8E74-492D-831A-4F5C8CF2507B}"
               DTS:CreationName="" />
             <DTS:FlatFileColumn
               DTS:ColumnType="Delimited"
@@ -135,15 +137,16 @@
               DTS:DataType="130"
               DTS:TextQualified="True"
               DTS:ObjectName="customer_loyalty_tier"
-              DTS:DTSID="{35774DF3-2B1B-45A8-822C-EBAD73D2730A}"
+              DTS:DTSID="{5EF1713E-D51F-41C8-82C9-82901D9F3B92}"
               DTS:CreationName="" />
             <DTS:FlatFileColumn
               DTS:ColumnType="Delimited"
               DTS:ColumnDelimiter="_x002C_"
-              DTS:DataType="7"
+              DTS:MaximumWidth="50"
+              DTS:DataType="130"
               DTS:TextQualified="True"
               DTS:ObjectName="customer_since"
-              DTS:DTSID="{4BB3158B-F9BA-4ADC-AA33-EB2FA8C31AD2}"
+              DTS:DTSID="{22FF25A2-F3F8-493E-811A-E9BDE8335BDB}"
               DTS:CreationName="" />
             <DTS:FlatFileColumn
               DTS:ColumnType="Delimited"
@@ -152,7 +155,7 @@
               DTS:DataType="130"
               DTS:TextQualified="True"
               DTS:ObjectName="store_name"
-              DTS:DTSID="{F07444E3-5B50-471E-BFDC-6172AF716B9D}"
+              DTS:DTSID="{89B76430-8311-4FD6-BF0D-58B62C1A918E}"
               DTS:CreationName="" />
             <DTS:FlatFileColumn
               DTS:ColumnType="Delimited"
@@ -161,7 +164,7 @@
               DTS:DataType="130"
               DTS:TextQualified="True"
               DTS:ObjectName="store_city"
-              DTS:DTSID="{AF02B177-01C4-4C2C-85E7-61091D96558A}"
+              DTS:DTSID="{F6A02772-D073-4CB6-9700-3945D35F5AE8}"
               DTS:CreationName="" />
             <DTS:FlatFileColumn
               DTS:ColumnType="Delimited"
@@ -170,7 +173,7 @@
               DTS:DataType="130"
               DTS:TextQualified="True"
               DTS:ObjectName="store_province"
-              DTS:DTSID="{6A0A28E2-967B-4F5C-987E-86E0A31EF6EA}"
+              DTS:DTSID="{7CF728A0-73D3-437D-9A7A-8C9804C5A6DE}"
               DTS:CreationName="" />
             <DTS:FlatFileColumn
               DTS:ColumnType="Delimited"
@@ -179,7 +182,7 @@
               DTS:DataType="130"
               DTS:TextQualified="True"
               DTS:ObjectName="store_region"
-              DTS:DTSID="{D8269651-DAE8-4BE9-832E-C96FE773833C}"
+              DTS:DTSID="{0CF3EE96-5E41-473C-8478-2BCFE7EE67DB}"
               DTS:CreationName="" />
             <DTS:FlatFileColumn
               DTS:ColumnType="Delimited"
@@ -188,7 +191,7 @@
               DTS:DataType="130"
               DTS:TextQualified="True"
               DTS:ObjectName="store_manager"
-              DTS:DTSID="{9766337B-2B1E-46FC-AE18-DB089A4FA78D}"
+              DTS:DTSID="{6757407B-9DB7-4DA1-8179-0DAC269D1C91}"
               DTS:CreationName="" />
             <DTS:FlatFileColumn
               DTS:ColumnType="Delimited"
@@ -197,7 +200,7 @@
               DTS:DataType="130"
               DTS:TextQualified="True"
               DTS:ObjectName="product_name"
-              DTS:DTSID="{1A597C33-D79D-408F-AC0B-6E4BE0A313C1}"
+              DTS:DTSID="{7FE52B35-FCBB-4131-8A9A-46209FCFEF9C}"
               DTS:CreationName="" />
             <DTS:FlatFileColumn
               DTS:ColumnType="Delimited"
@@ -206,7 +209,7 @@
               DTS:DataType="130"
               DTS:TextQualified="True"
               DTS:ObjectName="category"
-              DTS:DTSID="{17801A59-92C5-4F0E-8EC1-D8BF87188804}"
+              DTS:DTSID="{0E560B2F-A518-4288-8644-BAFE6ACE7F15}"
               DTS:CreationName="" />
             <DTS:FlatFileColumn
               DTS:ColumnType="Delimited"
@@ -215,7 +218,7 @@
               DTS:DataType="130"
               DTS:TextQualified="True"
               DTS:ObjectName="sub_category"
-              DTS:DTSID="{826ACFF4-637D-463E-A8AF-E0525D1ED66F}"
+              DTS:DTSID="{DE8E69B1-5EF8-4FFA-850E-B65DCA5C47A7}"
               DTS:CreationName="" />
             <DTS:FlatFileColumn
               DTS:ColumnType="Delimited"
@@ -224,23 +227,25 @@
               DTS:DataType="130"
               DTS:TextQualified="True"
               DTS:ObjectName="sku"
-              DTS:DTSID="{784B15E7-08A5-474B-8C12-5B29236128F1}"
+              DTS:DTSID="{D45E8882-004A-4A27-B1A3-7ABE34B93FD8}"
               DTS:CreationName="" />
             <DTS:FlatFileColumn
               DTS:ColumnType="Delimited"
               DTS:ColumnDelimiter="_x002C_"
-              DTS:DataType="5"
+              DTS:MaximumWidth="50"
+              DTS:DataType="130"
               DTS:TextQualified="True"
               DTS:ObjectName="unit_price"
-              DTS:DTSID="{2CFD5B85-E282-43EC-886D-A1630D054703}"
+              DTS:DTSID="{0C6C1E51-3089-4C05-8860-C5F18189E2F2}"
               DTS:CreationName="" />
             <DTS:FlatFileColumn
               DTS:ColumnType="Delimited"
               DTS:ColumnDelimiter="_x002C_"
-              DTS:DataType="5"
+              DTS:MaximumWidth="50"
+              DTS:DataType="130"
               DTS:TextQualified="True"
               DTS:ObjectName="cost_price"
-              DTS:DTSID="{CE706D47-C999-44B4-81E5-DE325F2FED7F}"
+              DTS:DTSID="{0B9CEEF2-70CB-4E3D-A0F3-A1ECDDB47309}"
               DTS:CreationName="" />
             <DTS:FlatFileColumn
               DTS:ColumnType="Delimited"
@@ -249,7 +254,7 @@
               DTS:DataType="130"
               DTS:TextQualified="True"
               DTS:ObjectName="supplier"
-              DTS:DTSID="{DD57A4FE-2ADE-4011-A5ED-C6CF0915587F}"
+              DTS:DTSID="{D1D093AD-BA63-4412-AB4A-B0D444F42E4C}"
               DTS:CreationName="" />
             <DTS:FlatFileColumn
               DTS:ColumnType="Delimited"
@@ -258,15 +263,16 @@
               DTS:DataType="130"
               DTS:TextQualified="True"
               DTS:ObjectName="qty"
-              DTS:DTSID="{23A6516E-FB9D-4CC5-B4AC-7D2669058253}"
+              DTS:DTSID="{3FFAF706-41C9-4DAB-A736-62712F50D296}"
               DTS:CreationName="" />
             <DTS:FlatFileColumn
               DTS:ColumnType="Delimited"
               DTS:ColumnDelimiter="_x002C_"
-              DTS:DataType="5"
+              DTS:MaximumWidth="50"
+              DTS:DataType="130"
               DTS:TextQualified="True"
               DTS:ObjectName="line_amount"
-              DTS:DTSID="{FA41AE96-0170-48C4-B57E-FE5D0C8A3123}"
+              DTS:DTSID="{D300AEAD-28DD-425E-B935-F5C494147EA7}"
               DTS:CreationName="" />
             <DTS:FlatFileColumn
               DTS:ColumnType="Delimited"
@@ -274,7 +280,7 @@
               DTS:DataType="3"
               DTS:TextQualified="True"
               DTS:ObjectName="stock_on_hand"
-              DTS:DTSID="{3ABCE384-033D-4ACC-8948-35FD522CD8F8}"
+              DTS:DTSID="{90A3B6E6-B5F9-47FC-9A87-D08CA2D7B4C7}"
               DTS:CreationName="" />
             <DTS:FlatFileColumn
               DTS:ColumnType="Delimited"
@@ -282,13 +288,38 @@
               DTS:DataType="3"
               DTS:TextQualified="True"
               DTS:ObjectName="reorder_threshold"
-              DTS:DTSID="{F0808E10-3F0E-41CF-A3B8-F53AFDF786D9}"
+              DTS:DTSID="{FBA88C11-8B3B-47E3-B0D8-FEF2C7033E29}"
               DTS:CreationName="" />
           </DTS:FlatFileColumns>
         </DTS:ConnectionManager>
       </DTS:ObjectData>
     </DTS:ConnectionManager>
+    <DTS:ConnectionManager
+      DTS:refId="Package.ConnectionManagers[Localhost.stg_brightlearn_sales]"
+      DTS:CreationName="OLEDB"
+      DTS:DTSID="{D5D4106D-60BA-4787-BE55-BDC2EF28B83D}"
+      DTS:ObjectName="Localhost.stg_brightlearn_sales">
+      <DTS:PropertyExpression
+        DTS:Name="ServerName">@[$Package::LocalhostStg_brightlearn_sales_ServerName]</DTS:PropertyExpression>
+      <DTS:ObjectData>
+        <DTS:ConnectionManager
+          DTS:ConnectRetryCount="1"
+          DTS:ConnectRetryInterval="5"
+          DTS:ConnectionString="Data Source=Localhost;Initial Catalog=stg_brightlearn_sales;Provider=SQLOLEDB.1;Integrated Security=SSPI;Application Name=SSIS-Package1-{D5D4106D-60BA-4787-BE55-BDC2EF28B83D}Localhost.stg_brightlearn_sales;Auto Translate=False;" />
+      </DTS:ObjectData>
+    </DTS:ConnectionManager>
   </DTS:ConnectionManagers>
+  <DTS:PackageParameters>
+    <DTS:PackageParameter
+      DTS:CreationName=""
+      DTS:DataType="8"
+      DTS:DTSID="{6D208DBF-3E34-4B40-A724-4B2955EE70DB}"
+      DTS:ObjectName="LocalhostStg_brightlearn_sales_ServerName">
+      <DTS:Property
+        DTS:DataType="8"
+        DTS:Name="ParameterValue">Localhost</DTS:Property>
+    </DTS:PackageParameter>
+  </DTS:PackageParameters>
   <DTS:Variables />
   <DTS:Executables>
     <DTS:Executable
@@ -306,6 +337,212 @@
           version="1">
           <components>
             <component
+              refId="Package\Load Raw Data Into Brightlearn Staging Database\Data Conversion"
+              componentClassID="Microsoft.DataConvert"
+              contactInfo="Data Conversion;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved; http://www.microsoft.com/sql/support;0"
+              description="Data Conversion"
+              name="Data Conversion"
+              usesDispositions="true">
+              <inputs>
+                <input
+                  refId="Package\Load Raw Data Into Brightlearn Staging Database\Data Conversion.Inputs[Data Conversion Input]"
+                  name="Data Conversion Input">
+                  <inputColumns>
+                    <inputColumn
+                      refId="Package\Load Raw Data Into Brightlearn Staging Database\Data Conversion.Inputs[Data Conversion Input].Columns[transaction_amount]"
+                      cachedDataType="wstr"
+                      cachedLength="50"
+                      cachedName="transaction_amount"
+                      lineageId="Package\Load Raw Data Into Brightlearn Staging Database\Flat File Source - CSV.Outputs[Flat File Source Output].Columns[transaction_amount]" />
+                    <inputColumn
+                      refId="Package\Load Raw Data Into Brightlearn Staging Database\Data Conversion.Inputs[Data Conversion Input].Columns[transaction_discount]"
+                      cachedDataType="wstr"
+                      cachedLength="50"
+                      cachedName="transaction_discount"
+                      lineageId="Package\Load Raw Data Into Brightlearn Staging Database\Flat File Source - CSV.Outputs[Flat File Source Output].Columns[transaction_discount]" />
+                    <inputColumn
+                      refId="Package\Load Raw Data Into Brightlearn Staging Database\Data Conversion.Inputs[Data Conversion Input].Columns[customer_since]"
+                      cachedDataType="wstr"
+                      cachedLength="50"
+                      cachedName="customer_since"
+                      lineageId="Package\Load Raw Data Into Brightlearn Staging Database\Flat File Source - CSV.Outputs[Flat File Source Output].Columns[customer_since]" />
+                    <inputColumn
+                      refId="Package\Load Raw Data Into Brightlearn Staging Database\Data Conversion.Inputs[Data Conversion Input].Columns[unit_price]"
+                      cachedDataType="wstr"
+                      cachedLength="50"
+                      cachedName="unit_price"
+                      lineageId="Package\Load Raw Data Into Brightlearn Staging Database\Flat File Source - CSV.Outputs[Flat File Source Output].Columns[unit_price]" />
+                    <inputColumn
+                      refId="Package\Load Raw Data Into Brightlearn Staging Database\Data Conversion.Inputs[Data Conversion Input].Columns[cost_price]"
+                      cachedDataType="wstr"
+                      cachedLength="50"
+                      cachedName="cost_price"
+                      lineageId="Package\Load Raw Data Into Brightlearn Staging Database\Flat File Source - CSV.Outputs[Flat File Source Output].Columns[cost_price]" />
+                    <inputColumn
+                      refId="Package\Load Raw Data Into Brightlearn Staging Database\Data Conversion.Inputs[Data Conversion Input].Columns[line_amount]"
+                      cachedDataType="wstr"
+                      cachedLength="50"
+                      cachedName="line_amount"
+                      lineageId="Package\Load Raw Data Into Brightlearn Staging Database\Flat File Source - CSV.Outputs[Flat File Source Output].Columns[line_amount]" />
+                  </inputColumns>
+                  <externalMetadataColumns />
+                </input>
+              </inputs>
+              <outputs>
+                <output
+                  refId="Package\Load Raw Data Into Brightlearn Staging Database\Data Conversion.Outputs[Data Conversion Output]"
+                  exclusionGroup="1"
+                  name="Data Conversion Output"
+                  synchronousInputId="Package\Load Raw Data Into Brightlearn Staging Database\Data Conversion.Inputs[Data Conversion Input]">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\Load Raw Data Into Brightlearn Staging Database\Data Conversion.Outputs[Data Conversion Output].Columns[converted_transaction_amount]"
+                      dataType="r8"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      lineageId="Package\Load Raw Data Into Brightlearn Staging Database\Data Conversion.Outputs[Data Conversion Output].Columns[converted_transaction_amount]"
+                      name="converted_transaction_amount"
+                      truncationRowDisposition="FailComponent">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.Int32"
+                          description="Specifies the input column used as the source of data for the conversion."
+                          name="SourceInputColumnLineageID">#{Package\Load Raw Data Into Brightlearn Staging Database\Flat File Source - CSV.Outputs[Flat File Source Output].Columns[transaction_amount]}</property>
+                        <property
+                          dataType="System.Boolean"
+                          description="Indicates whether the column uses the faster, locale-neutral parsing routines."
+                          name="FastParse">false</property>
+                      </properties>
+                    </outputColumn>
+                    <outputColumn
+                      refId="Package\Load Raw Data Into Brightlearn Staging Database\Data Conversion.Outputs[Data Conversion Output].Columns[converted_transaction_discount]"
+                      dataType="r8"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      lineageId="Package\Load Raw Data Into Brightlearn Staging Database\Data Conversion.Outputs[Data Conversion Output].Columns[converted_transaction_discount]"
+                      name="converted_transaction_discount"
+                      truncationRowDisposition="FailComponent">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.Int32"
+                          description="Specifies the input column used as the source of data for the conversion."
+                          name="SourceInputColumnLineageID">#{Package\Load Raw Data Into Brightlearn Staging Database\Flat File Source - CSV.Outputs[Flat File Source Output].Columns[transaction_discount]}</property>
+                        <property
+                          dataType="System.Boolean"
+                          description="Indicates whether the column uses the faster, locale-neutral parsing routines."
+                          name="FastParse">false</property>
+                      </properties>
+                    </outputColumn>
+                    <outputColumn
+                      refId="Package\Load Raw Data Into Brightlearn Staging Database\Data Conversion.Outputs[Data Conversion Output].Columns[converted_customer_since]"
+                      dataType="date"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      lineageId="Package\Load Raw Data Into Brightlearn Staging Database\Data Conversion.Outputs[Data Conversion Output].Columns[converted_customer_since]"
+                      name="converted_customer_since"
+                      truncationRowDisposition="FailComponent">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.Int32"
+                          description="Specifies the input column used as the source of data for the conversion."
+                          name="SourceInputColumnLineageID">#{Package\Load Raw Data Into Brightlearn Staging Database\Flat File Source - CSV.Outputs[Flat File Source Output].Columns[customer_since]}</property>
+                        <property
+                          dataType="System.Boolean"
+                          description="Indicates whether the column uses the faster, locale-neutral parsing routines."
+                          name="FastParse">false</property>
+                      </properties>
+                    </outputColumn>
+                    <outputColumn
+                      refId="Package\Load Raw Data Into Brightlearn Staging Database\Data Conversion.Outputs[Data Conversion Output].Columns[converted_unit_price]"
+                      dataType="r8"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      lineageId="Package\Load Raw Data Into Brightlearn Staging Database\Data Conversion.Outputs[Data Conversion Output].Columns[converted_unit_price]"
+                      name="converted_unit_price"
+                      truncationRowDisposition="FailComponent">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.Int32"
+                          description="Specifies the input column used as the source of data for the conversion."
+                          name="SourceInputColumnLineageID">#{Package\Load Raw Data Into Brightlearn Staging Database\Flat File Source - CSV.Outputs[Flat File Source Output].Columns[unit_price]}</property>
+                        <property
+                          dataType="System.Boolean"
+                          description="Indicates whether the column uses the faster, locale-neutral parsing routines."
+                          name="FastParse">false</property>
+                      </properties>
+                    </outputColumn>
+                    <outputColumn
+                      refId="Package\Load Raw Data Into Brightlearn Staging Database\Data Conversion.Outputs[Data Conversion Output].Columns[converted_cost_price]"
+                      dataType="r8"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      lineageId="Package\Load Raw Data Into Brightlearn Staging Database\Data Conversion.Outputs[Data Conversion Output].Columns[converted_cost_price]"
+                      name="converted_cost_price"
+                      truncationRowDisposition="FailComponent">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.Int32"
+                          description="Specifies the input column used as the source of data for the conversion."
+                          name="SourceInputColumnLineageID">#{Package\Load Raw Data Into Brightlearn Staging Database\Flat File Source - CSV.Outputs[Flat File Source Output].Columns[cost_price]}</property>
+                        <property
+                          dataType="System.Boolean"
+                          description="Indicates whether the column uses the faster, locale-neutral parsing routines."
+                          name="FastParse">false</property>
+                      </properties>
+                    </outputColumn>
+                    <outputColumn
+                      refId="Package\Load Raw Data Into Brightlearn Staging Database\Data Conversion.Outputs[Data Conversion Output].Columns[converted_line_amount]"
+                      dataType="r8"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      lineageId="Package\Load Raw Data Into Brightlearn Staging Database\Data Conversion.Outputs[Data Conversion Output].Columns[converted_line_amount]"
+                      name="converted_line_amount"
+                      truncationRowDisposition="FailComponent">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.Int32"
+                          description="Specifies the input column used as the source of data for the conversion."
+                          name="SourceInputColumnLineageID">#{Package\Load Raw Data Into Brightlearn Staging Database\Flat File Source - CSV.Outputs[Flat File Source Output].Columns[line_amount]}</property>
+                        <property
+                          dataType="System.Boolean"
+                          description="Indicates whether the column uses the faster, locale-neutral parsing routines."
+                          name="FastParse">false</property>
+                      </properties>
+                    </outputColumn>
+                  </outputColumns>
+                  <externalMetadataColumns />
+                </output>
+                <output
+                  refId="Package\Load Raw Data Into Brightlearn Staging Database\Data Conversion.Outputs[Data Conversion Error Output]"
+                  exclusionGroup="1"
+                  isErrorOut="true"
+                  name="Data Conversion Error Output"
+                  synchronousInputId="Package\Load Raw Data Into Brightlearn Staging Database\Data Conversion.Inputs[Data Conversion Input]">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\Load Raw Data Into Brightlearn Staging Database\Data Conversion.Outputs[Data Conversion Error Output].Columns[ErrorCode]"
+                      dataType="i4"
+                      lineageId="Package\Load Raw Data Into Brightlearn Staging Database\Data Conversion.Outputs[Data Conversion Error Output].Columns[ErrorCode]"
+                      name="ErrorCode"
+                      specialFlags="1" />
+                    <outputColumn
+                      refId="Package\Load Raw Data Into Brightlearn Staging Database\Data Conversion.Outputs[Data Conversion Error Output].Columns[ErrorColumn]"
+                      dataType="i4"
+                      lineageId="Package\Load Raw Data Into Brightlearn Staging Database\Data Conversion.Outputs[Data Conversion Error Output].Columns[ErrorColumn]"
+                      name="ErrorColumn"
+                      specialFlags="2" />
+                  </outputColumns>
+                  <externalMetadataColumns />
+                </output>
+              </outputs>
+            </component>
+            <component
               refId="Package\Load Raw Data Into Brightlearn Staging Database\Destination - Brightlearn Staging Database"
               componentClassID="Microsoft.OLEDBDestination"
               contactInfo="OLE DB Destination;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved; http://www.microsoft.com/sql/support;4"
@@ -321,7 +558,7 @@
                 <property
                   dataType="System.String"
                   description="Specifies the name of the database object used to open a rowset."
-                  name="OpenRowset">[dbo].[brightLearn_raw_data]</property>
+                  name="OpenRowset">[brightlearn_raw_data]</property>
                 <property
                   dataType="System.String"
                   description="Specifies the variable that contains the name of the database object used to open a rowset."
@@ -364,8 +601,8 @@
               <connections>
                 <connection
                   refId="Package\Load Raw Data Into Brightlearn Staging Database\Destination - Brightlearn Staging Database.Connections[OleDbConnection]"
-                  connectionManagerID="{A9101676-7108-44EF-9D91-05CE30EF5B13}:external"
-                  connectionManagerRefId="Project.ConnectionManagers[Mzii.stg_brightlearn_sales]"
+                  connectionManagerID="Package.ConnectionManagers[Localhost.stg_brightlearn_sales]"
+                  connectionManagerRefId="Package.ConnectionManagers[Localhost.stg_brightlearn_sales]"
                   description="The OLE DB runtime connection used to access the database."
                   name="OleDbConnection" />
               </connections>
@@ -398,18 +635,6 @@
                       cachedName="cashier_name"
                       externalMetadataColumnId="Package\Load Raw Data Into Brightlearn Staging Database\Destination - Brightlearn Staging Database.Inputs[OLE DB Destination Input].ExternalColumns[cashier_name]"
                       lineageId="Package\Load Raw Data Into Brightlearn Staging Database\Flat File Source - CSV.Outputs[Flat File Source Output].Columns[cashier_name]" />
-                    <inputColumn
-                      refId="Package\Load Raw Data Into Brightlearn Staging Database\Destination - Brightlearn Staging Database.Inputs[OLE DB Destination Input].Columns[transaction_amount]"
-                      cachedDataType="r8"
-                      cachedName="transaction_amount"
-                      externalMetadataColumnId="Package\Load Raw Data Into Brightlearn Staging Database\Destination - Brightlearn Staging Database.Inputs[OLE DB Destination Input].ExternalColumns[transaction_amount]"
-                      lineageId="Package\Load Raw Data Into Brightlearn Staging Database\Flat File Source - CSV.Outputs[Flat File Source Output].Columns[transaction_amount]" />
-                    <inputColumn
-                      refId="Package\Load Raw Data Into Brightlearn Staging Database\Destination - Brightlearn Staging Database.Inputs[OLE DB Destination Input].Columns[transaction_discount]"
-                      cachedDataType="r8"
-                      cachedName="transaction_discount"
-                      externalMetadataColumnId="Package\Load Raw Data Into Brightlearn Staging Database\Destination - Brightlearn Staging Database.Inputs[OLE DB Destination Input].ExternalColumns[transaction_discount]"
-                      lineageId="Package\Load Raw Data Into Brightlearn Staging Database\Flat File Source - CSV.Outputs[Flat File Source Output].Columns[transaction_discount]" />
                     <inputColumn
                       refId="Package\Load Raw Data Into Brightlearn Staging Database\Destination - Brightlearn Staging Database.Inputs[OLE DB Destination Input].Columns[customer_first_name]"
                       cachedDataType="wstr"
@@ -458,12 +683,6 @@
                       cachedName="customer_loyalty_tier"
                       externalMetadataColumnId="Package\Load Raw Data Into Brightlearn Staging Database\Destination - Brightlearn Staging Database.Inputs[OLE DB Destination Input].ExternalColumns[customer_loyalty_tier]"
                       lineageId="Package\Load Raw Data Into Brightlearn Staging Database\Flat File Source - CSV.Outputs[Flat File Source Output].Columns[customer_loyalty_tier]" />
-                    <inputColumn
-                      refId="Package\Load Raw Data Into Brightlearn Staging Database\Destination - Brightlearn Staging Database.Inputs[OLE DB Destination Input].Columns[customer_since]"
-                      cachedDataType="date"
-                      cachedName="customer_since"
-                      externalMetadataColumnId="Package\Load Raw Data Into Brightlearn Staging Database\Destination - Brightlearn Staging Database.Inputs[OLE DB Destination Input].ExternalColumns[customer_since]"
-                      lineageId="Package\Load Raw Data Into Brightlearn Staging Database\Flat File Source - CSV.Outputs[Flat File Source Output].Columns[customer_since]" />
                     <inputColumn
                       refId="Package\Load Raw Data Into Brightlearn Staging Database\Destination - Brightlearn Staging Database.Inputs[OLE DB Destination Input].Columns[store_name]"
                       cachedDataType="wstr"
@@ -528,18 +747,6 @@
                       externalMetadataColumnId="Package\Load Raw Data Into Brightlearn Staging Database\Destination - Brightlearn Staging Database.Inputs[OLE DB Destination Input].ExternalColumns[sku]"
                       lineageId="Package\Load Raw Data Into Brightlearn Staging Database\Flat File Source - CSV.Outputs[Flat File Source Output].Columns[sku]" />
                     <inputColumn
-                      refId="Package\Load Raw Data Into Brightlearn Staging Database\Destination - Brightlearn Staging Database.Inputs[OLE DB Destination Input].Columns[unit_price]"
-                      cachedDataType="r8"
-                      cachedName="unit_price"
-                      externalMetadataColumnId="Package\Load Raw Data Into Brightlearn Staging Database\Destination - Brightlearn Staging Database.Inputs[OLE DB Destination Input].ExternalColumns[unit_price]"
-                      lineageId="Package\Load Raw Data Into Brightlearn Staging Database\Flat File Source - CSV.Outputs[Flat File Source Output].Columns[unit_price]" />
-                    <inputColumn
-                      refId="Package\Load Raw Data Into Brightlearn Staging Database\Destination - Brightlearn Staging Database.Inputs[OLE DB Destination Input].Columns[cost_price]"
-                      cachedDataType="r8"
-                      cachedName="cost_price"
-                      externalMetadataColumnId="Package\Load Raw Data Into Brightlearn Staging Database\Destination - Brightlearn Staging Database.Inputs[OLE DB Destination Input].ExternalColumns[cost_price]"
-                      lineageId="Package\Load Raw Data Into Brightlearn Staging Database\Flat File Source - CSV.Outputs[Flat File Source Output].Columns[cost_price]" />
-                    <inputColumn
                       refId="Package\Load Raw Data Into Brightlearn Staging Database\Destination - Brightlearn Staging Database.Inputs[OLE DB Destination Input].Columns[supplier]"
                       cachedDataType="wstr"
                       cachedLength="50"
@@ -554,12 +761,6 @@
                       externalMetadataColumnId="Package\Load Raw Data Into Brightlearn Staging Database\Destination - Brightlearn Staging Database.Inputs[OLE DB Destination Input].ExternalColumns[qty]"
                       lineageId="Package\Load Raw Data Into Brightlearn Staging Database\Flat File Source - CSV.Outputs[Flat File Source Output].Columns[qty]" />
                     <inputColumn
-                      refId="Package\Load Raw Data Into Brightlearn Staging Database\Destination - Brightlearn Staging Database.Inputs[OLE DB Destination Input].Columns[line_amount]"
-                      cachedDataType="r8"
-                      cachedName="line_amount"
-                      externalMetadataColumnId="Package\Load Raw Data Into Brightlearn Staging Database\Destination - Brightlearn Staging Database.Inputs[OLE DB Destination Input].ExternalColumns[line_amount]"
-                      lineageId="Package\Load Raw Data Into Brightlearn Staging Database\Flat File Source - CSV.Outputs[Flat File Source Output].Columns[line_amount]" />
-                    <inputColumn
                       refId="Package\Load Raw Data Into Brightlearn Staging Database\Destination - Brightlearn Staging Database.Inputs[OLE DB Destination Input].Columns[stock_on_hand]"
                       cachedDataType="i4"
                       cachedName="stock_on_hand"
@@ -571,6 +772,42 @@
                       cachedName="reorder_threshold"
                       externalMetadataColumnId="Package\Load Raw Data Into Brightlearn Staging Database\Destination - Brightlearn Staging Database.Inputs[OLE DB Destination Input].ExternalColumns[reorder_threshold]"
                       lineageId="Package\Load Raw Data Into Brightlearn Staging Database\Flat File Source - CSV.Outputs[Flat File Source Output].Columns[reorder_threshold]" />
+                    <inputColumn
+                      refId="Package\Load Raw Data Into Brightlearn Staging Database\Destination - Brightlearn Staging Database.Inputs[OLE DB Destination Input].Columns[converted_transaction_amount]"
+                      cachedDataType="r8"
+                      cachedName="converted_transaction_amount"
+                      externalMetadataColumnId="Package\Load Raw Data Into Brightlearn Staging Database\Destination - Brightlearn Staging Database.Inputs[OLE DB Destination Input].ExternalColumns[transaction_amount]"
+                      lineageId="Package\Load Raw Data Into Brightlearn Staging Database\Data Conversion.Outputs[Data Conversion Output].Columns[converted_transaction_amount]" />
+                    <inputColumn
+                      refId="Package\Load Raw Data Into Brightlearn Staging Database\Destination - Brightlearn Staging Database.Inputs[OLE DB Destination Input].Columns[converted_transaction_discount]"
+                      cachedDataType="r8"
+                      cachedName="converted_transaction_discount"
+                      externalMetadataColumnId="Package\Load Raw Data Into Brightlearn Staging Database\Destination - Brightlearn Staging Database.Inputs[OLE DB Destination Input].ExternalColumns[transaction_discount]"
+                      lineageId="Package\Load Raw Data Into Brightlearn Staging Database\Data Conversion.Outputs[Data Conversion Output].Columns[converted_transaction_discount]" />
+                    <inputColumn
+                      refId="Package\Load Raw Data Into Brightlearn Staging Database\Destination - Brightlearn Staging Database.Inputs[OLE DB Destination Input].Columns[converted_customer_since]"
+                      cachedDataType="date"
+                      cachedName="converted_customer_since"
+                      externalMetadataColumnId="Package\Load Raw Data Into Brightlearn Staging Database\Destination - Brightlearn Staging Database.Inputs[OLE DB Destination Input].ExternalColumns[customer_since]"
+                      lineageId="Package\Load Raw Data Into Brightlearn Staging Database\Data Conversion.Outputs[Data Conversion Output].Columns[converted_customer_since]" />
+                    <inputColumn
+                      refId="Package\Load Raw Data Into Brightlearn Staging Database\Destination - Brightlearn Staging Database.Inputs[OLE DB Destination Input].Columns[converted_unit_price]"
+                      cachedDataType="r8"
+                      cachedName="converted_unit_price"
+                      externalMetadataColumnId="Package\Load Raw Data Into Brightlearn Staging Database\Destination - Brightlearn Staging Database.Inputs[OLE DB Destination Input].ExternalColumns[unit_price]"
+                      lineageId="Package\Load Raw Data Into Brightlearn Staging Database\Data Conversion.Outputs[Data Conversion Output].Columns[converted_unit_price]" />
+                    <inputColumn
+                      refId="Package\Load Raw Data Into Brightlearn Staging Database\Destination - Brightlearn Staging Database.Inputs[OLE DB Destination Input].Columns[converted_cost_price]"
+                      cachedDataType="r8"
+                      cachedName="converted_cost_price"
+                      externalMetadataColumnId="Package\Load Raw Data Into Brightlearn Staging Database\Destination - Brightlearn Staging Database.Inputs[OLE DB Destination Input].ExternalColumns[cost_price]"
+                      lineageId="Package\Load Raw Data Into Brightlearn Staging Database\Data Conversion.Outputs[Data Conversion Output].Columns[converted_cost_price]" />
+                    <inputColumn
+                      refId="Package\Load Raw Data Into Brightlearn Staging Database\Destination - Brightlearn Staging Database.Inputs[OLE DB Destination Input].Columns[converted_line_amount]"
+                      cachedDataType="r8"
+                      cachedName="converted_line_amount"
+                      externalMetadataColumnId="Package\Load Raw Data Into Brightlearn Staging Database\Destination - Brightlearn Staging Database.Inputs[OLE DB Destination Input].ExternalColumns[line_amount]"
+                      lineageId="Package\Load Raw Data Into Brightlearn Staging Database\Data Conversion.Outputs[Data Conversion Output].Columns[converted_line_amount]" />
                   </inputColumns>
                   <externalMetadataColumns
                     isUsed="True">
@@ -633,8 +870,7 @@
                       name="customer_loyalty_tier" />
                     <externalMetadataColumn
                       refId="Package\Load Raw Data Into Brightlearn Staging Database\Destination - Brightlearn Staging Database.Inputs[OLE DB Destination Input].ExternalColumns[customer_since]"
-                      dataType="wstr"
-                      length="27"
+                      dataType="dbTimeStamp"
                       name="customer_since" />
                     <externalMetadataColumn
                       refId="Package\Load Raw Data Into Brightlearn Staging Database\Destination - Brightlearn Staging Database.Inputs[OLE DB Destination Input].ExternalColumns[store_name]"
@@ -744,7 +980,7 @@
               componentClassID="Microsoft.FlatFileSource"
               contactInfo="Flat File Source;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved; http://www.microsoft.com/sql/support;1"
               description="Flat File Source"
-              localeId="1033"
+              localeId="7177"
               name="Flat File Source - CSV"
               usesDispositions="true"
               version="1">
@@ -761,8 +997,8 @@
               <connections>
                 <connection
                   refId="Package\Load Raw Data Into Brightlearn Staging Database\Flat File Source - CSV.Connections[FlatFileConnection]"
-                  connectionManagerID="Package.ConnectionManagers[CSV File Connection]"
-                  connectionManagerRefId="Package.ConnectionManagers[CSV File Connection]"
+                  connectionManagerID="Package.ConnectionManagers[Brightlearn CSV]"
+                  connectionManagerRefId="Package.ConnectionManagers[Brightlearn CSV]"
                   name="FlatFileConnection" />
               </connections>
               <outputs>
@@ -835,10 +1071,11 @@
                     </outputColumn>
                     <outputColumn
                       refId="Package\Load Raw Data Into Brightlearn Staging Database\Flat File Source - CSV.Outputs[Flat File Source Output].Columns[transaction_amount]"
-                      dataType="r8"
+                      dataType="wstr"
                       errorOrTruncationOperation="Conversion"
                       errorRowDisposition="FailComponent"
                       externalMetadataColumnId="Package\Load Raw Data Into Brightlearn Staging Database\Flat File Source - CSV.Outputs[Flat File Source Output].ExternalColumns[transaction_amount]"
+                      length="50"
                       lineageId="Package\Load Raw Data Into Brightlearn Staging Database\Flat File Source - CSV.Outputs[Flat File Source Output].Columns[transaction_amount]"
                       name="transaction_amount"
                       truncationRowDisposition="FailComponent">
@@ -855,10 +1092,11 @@
                     </outputColumn>
                     <outputColumn
                       refId="Package\Load Raw Data Into Brightlearn Staging Database\Flat File Source - CSV.Outputs[Flat File Source Output].Columns[transaction_discount]"
-                      dataType="r8"
+                      dataType="wstr"
                       errorOrTruncationOperation="Conversion"
                       errorRowDisposition="FailComponent"
                       externalMetadataColumnId="Package\Load Raw Data Into Brightlearn Staging Database\Flat File Source - CSV.Outputs[Flat File Source Output].ExternalColumns[transaction_discount]"
+                      length="50"
                       lineageId="Package\Load Raw Data Into Brightlearn Staging Database\Flat File Source - CSV.Outputs[Flat File Source Output].Columns[transaction_discount]"
                       name="transaction_discount"
                       truncationRowDisposition="FailComponent">
@@ -1021,10 +1259,11 @@
                     </outputColumn>
                     <outputColumn
                       refId="Package\Load Raw Data Into Brightlearn Staging Database\Flat File Source - CSV.Outputs[Flat File Source Output].Columns[customer_since]"
-                      dataType="date"
+                      dataType="wstr"
                       errorOrTruncationOperation="Conversion"
                       errorRowDisposition="FailComponent"
                       externalMetadataColumnId="Package\Load Raw Data Into Brightlearn Staging Database\Flat File Source - CSV.Outputs[Flat File Source Output].ExternalColumns[customer_since]"
+                      length="50"
                       lineageId="Package\Load Raw Data Into Brightlearn Staging Database\Flat File Source - CSV.Outputs[Flat File Source Output].Columns[customer_since]"
                       name="customer_since"
                       truncationRowDisposition="FailComponent">
@@ -1230,10 +1469,11 @@
                     </outputColumn>
                     <outputColumn
                       refId="Package\Load Raw Data Into Brightlearn Staging Database\Flat File Source - CSV.Outputs[Flat File Source Output].Columns[unit_price]"
-                      dataType="r8"
+                      dataType="wstr"
                       errorOrTruncationOperation="Conversion"
                       errorRowDisposition="FailComponent"
                       externalMetadataColumnId="Package\Load Raw Data Into Brightlearn Staging Database\Flat File Source - CSV.Outputs[Flat File Source Output].ExternalColumns[unit_price]"
+                      length="50"
                       lineageId="Package\Load Raw Data Into Brightlearn Staging Database\Flat File Source - CSV.Outputs[Flat File Source Output].Columns[unit_price]"
                       name="unit_price"
                       truncationRowDisposition="FailComponent">
@@ -1250,10 +1490,11 @@
                     </outputColumn>
                     <outputColumn
                       refId="Package\Load Raw Data Into Brightlearn Staging Database\Flat File Source - CSV.Outputs[Flat File Source Output].Columns[cost_price]"
-                      dataType="r8"
+                      dataType="wstr"
                       errorOrTruncationOperation="Conversion"
                       errorRowDisposition="FailComponent"
                       externalMetadataColumnId="Package\Load Raw Data Into Brightlearn Staging Database\Flat File Source - CSV.Outputs[Flat File Source Output].ExternalColumns[cost_price]"
+                      length="50"
                       lineageId="Package\Load Raw Data Into Brightlearn Staging Database\Flat File Source - CSV.Outputs[Flat File Source Output].Columns[cost_price]"
                       name="cost_price"
                       truncationRowDisposition="FailComponent">
@@ -1312,10 +1553,11 @@
                     </outputColumn>
                     <outputColumn
                       refId="Package\Load Raw Data Into Brightlearn Staging Database\Flat File Source - CSV.Outputs[Flat File Source Output].Columns[line_amount]"
-                      dataType="r8"
+                      dataType="wstr"
                       errorOrTruncationOperation="Conversion"
                       errorRowDisposition="FailComponent"
                       externalMetadataColumnId="Package\Load Raw Data Into Brightlearn Staging Database\Flat File Source - CSV.Outputs[Flat File Source Output].ExternalColumns[line_amount]"
+                      length="50"
                       lineageId="Package\Load Raw Data Into Brightlearn Staging Database\Flat File Source - CSV.Outputs[Flat File Source Output].Columns[line_amount]"
                       name="line_amount"
                       truncationRowDisposition="FailComponent">
@@ -1390,11 +1632,13 @@
                       name="cashier_name" />
                     <externalMetadataColumn
                       refId="Package\Load Raw Data Into Brightlearn Staging Database\Flat File Source - CSV.Outputs[Flat File Source Output].ExternalColumns[transaction_amount]"
-                      dataType="r8"
+                      dataType="wstr"
+                      length="50"
                       name="transaction_amount" />
                     <externalMetadataColumn
                       refId="Package\Load Raw Data Into Brightlearn Staging Database\Flat File Source - CSV.Outputs[Flat File Source Output].ExternalColumns[transaction_discount]"
-                      dataType="r8"
+                      dataType="wstr"
+                      length="50"
                       name="transaction_discount" />
                     <externalMetadataColumn
                       refId="Package\Load Raw Data Into Brightlearn Staging Database\Flat File Source - CSV.Outputs[Flat File Source Output].ExternalColumns[customer_first_name]"
@@ -1432,7 +1676,8 @@
                       name="customer_loyalty_tier" />
                     <externalMetadataColumn
                       refId="Package\Load Raw Data Into Brightlearn Staging Database\Flat File Source - CSV.Outputs[Flat File Source Output].ExternalColumns[customer_since]"
-                      dataType="date"
+                      dataType="wstr"
+                      length="50"
                       name="customer_since" />
                     <externalMetadataColumn
                       refId="Package\Load Raw Data Into Brightlearn Staging Database\Flat File Source - CSV.Outputs[Flat File Source Output].ExternalColumns[store_name]"
@@ -1481,11 +1726,13 @@
                       name="sku" />
                     <externalMetadataColumn
                       refId="Package\Load Raw Data Into Brightlearn Staging Database\Flat File Source - CSV.Outputs[Flat File Source Output].ExternalColumns[unit_price]"
-                      dataType="r8"
+                      dataType="wstr"
+                      length="50"
                       name="unit_price" />
                     <externalMetadataColumn
                       refId="Package\Load Raw Data Into Brightlearn Staging Database\Flat File Source - CSV.Outputs[Flat File Source Output].ExternalColumns[cost_price]"
-                      dataType="r8"
+                      dataType="wstr"
+                      length="50"
                       name="cost_price" />
                     <externalMetadataColumn
                       refId="Package\Load Raw Data Into Brightlearn Staging Database\Flat File Source - CSV.Outputs[Flat File Source Output].ExternalColumns[supplier]"
@@ -1499,7 +1746,8 @@
                       name="qty" />
                     <externalMetadataColumn
                       refId="Package\Load Raw Data Into Brightlearn Staging Database\Flat File Source - CSV.Outputs[Flat File Source Output].ExternalColumns[line_amount]"
-                      dataType="r8"
+                      dataType="wstr"
+                      length="50"
                       name="line_amount" />
                     <externalMetadataColumn
                       refId="Package\Load Raw Data Into Brightlearn Staging Database\Flat File Source - CSV.Outputs[Flat File Source Output].ExternalColumns[stock_on_hand]"
@@ -1543,15 +1791,47 @@
           </components>
           <paths>
             <path
-              refId="Package\Load Raw Data Into Brightlearn Staging Database.Paths[Flat File Source Output]"
+              refId="Package\Load Raw Data Into Brightlearn Staging Database.Paths[Data Conversion Output]"
               endId="Package\Load Raw Data Into Brightlearn Staging Database\Destination - Brightlearn Staging Database.Inputs[OLE DB Destination Input]"
+              name="Data Conversion Output"
+              startId="Package\Load Raw Data Into Brightlearn Staging Database\Data Conversion.Outputs[Data Conversion Output]" />
+            <path
+              refId="Package\Load Raw Data Into Brightlearn Staging Database.Paths[Flat File Source Output]"
+              endId="Package\Load Raw Data Into Brightlearn Staging Database\Data Conversion.Inputs[Data Conversion Input]"
               name="Flat File Source Output"
               startId="Package\Load Raw Data Into Brightlearn Staging Database\Flat File Source - CSV.Outputs[Flat File Source Output]" />
           </paths>
         </pipeline>
       </DTS:ObjectData>
     </DTS:Executable>
+    <DTS:Executable
+      DTS:refId="Package\Truncate staging table for raw data"
+      DTS:CreationName="Microsoft.ExecuteSQLTask"
+      DTS:Description="Execute SQL Task"
+      DTS:DTSID="{C619D06A-D3D5-4409-B4E5-8E184755D60E}"
+      DTS:ExecutableType="Microsoft.ExecuteSQLTask"
+      DTS:LocaleID="-1"
+      DTS:ObjectName="Truncate staging table for raw data"
+      DTS:TaskContact="Execute SQL Task; Microsoft Corporation; SQL Server 2025; © 2025 Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1"
+      DTS:ThreadHint="0">
+      <DTS:Variables />
+      <DTS:ObjectData>
+        <SQLTask:SqlTaskData
+          SQLTask:Connection="{D5D4106D-60BA-4787-BE55-BDC2EF28B83D}"
+          SQLTask:SqlStatementSource="TRUNCATE TABLE [stg_brightlearn_sales].[dbo].[brightlearn_raw_data]" xmlns:SQLTask="www.microsoft.com/sqlserver/dts/tasks/sqltask" />
+      </DTS:ObjectData>
+    </DTS:Executable>
   </DTS:Executables>
+  <DTS:PrecedenceConstraints>
+    <DTS:PrecedenceConstraint
+      DTS:refId="Package.PrecedenceConstraints[Constraint]"
+      DTS:CreationName=""
+      DTS:DTSID="{05DA720B-8026-4ECF-B7F7-6E326EE63C97}"
+      DTS:From="Package\Truncate staging table for raw data"
+      DTS:LogicalAnd="True"
+      DTS:ObjectName="Constraint"
+      DTS:To="Package\Load Raw Data Into Brightlearn Staging Database" />
+  </DTS:PrecedenceConstraints>
   <DTS:DesignTimeProperties><![CDATA[<?xml version="1.0"?>
 <!--This CDATA section contains the layout information of the package. The section includes information such as (x,y) coordinates, width, and height.-->
 <!--If you manually edit this section and make a mistake, you can delete it. -->
@@ -1563,11 +1843,37 @@
     design-time-name="Package">
     <LayoutInfo>
       <GraphLayout
-        Capacity="4" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph">
+        Capacity="4" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:assembly="http://schemas.microsoft.com/winfx/2006/xaml">
         <NodeLayout
-          Size="308.8,41.6"
+          Size="309,42"
           Id="Package\Load Raw Data Into Brightlearn Staging Database"
-          TopLeft="223.333321130939,123.933332471516" />
+          TopLeft="249.333321130939,187.933332471516" />
+        <NodeLayout
+          Size="248,42"
+          Id="Package\Truncate staging table for raw data"
+          TopLeft="274,65" />
+        <EdgeLayout
+          Id="Package.PrecedenceConstraints[Constraint]"
+          TopLeft="400.916660565469,107">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="0,80.933332471516"
+              Start="0,0"
+              End="0,73.433332471516">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,73.433332471516" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
       </GraphLayout>
     </LayoutInfo>
   </Package>
@@ -1575,41 +1881,79 @@
     design-time-name="Package\Load Raw Data Into Brightlearn Staging Database">
     <LayoutInfo>
       <GraphLayout
-        Capacity="4" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:assembly="http://schemas.microsoft.com/winfx/2006/xaml">
+        Capacity="8" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:assembly="http://schemas.microsoft.com/winfx/2006/xaml">
         <NodeLayout
-          Size="275.2,41.6"
-          Id="Package\Load Raw Data Into Brightlearn Staging Database\Destination - Brightlearn Staging Database"
-          TopLeft="402.999993994832,213.999996811152" />
-        <NodeLayout
-          Size="181.6,41.6"
+          Size="182,42"
           Id="Package\Load Raw Data Into Brightlearn Staging Database\Flat File Source - CSV"
-          TopLeft="303.499995477498,53.3333325386048" />
+          TopLeft="377.499995477498,114.333332538605" />
+        <NodeLayout
+          Size="287,42"
+          Id="Package\Load Raw Data Into Brightlearn Staging Database\Destination - Brightlearn Staging Database"
+          TopLeft="412.999993994832,326.999996811152" />
+        <NodeLayout
+          Size="161,42"
+          Id="Package\Load Raw Data Into Brightlearn Staging Database\Data Conversion"
+          TopLeft="507,214" />
         <EdgeLayout
           Id="Package\Load Raw Data Into Brightlearn Staging Database.Paths[Flat File Source Output]"
-          TopLeft="394.299995477498,94.9333325386048">
+          TopLeft="468.499995477498,156.333332538605">
           <EdgeLayout.Curve>
             <mssgle:Curve
               StartConnector="{assembly:Null}"
-              EndConnector="146.299998517335,119.066664272547"
+              EndConnector="119.000004522502,57.666667461395"
               Start="0,0"
-              End="146.299998517335,111.566664272547">
+              End="119.000004522502,50.166667461395">
               <mssgle:Curve.Segments>
                 <mssgle:SegmentCollection
                   Capacity="5">
                   <mssgle:LineSegment
-                    End="0,55.5333321362734" />
+                    End="0,24.8333337306975" />
                   <mssgle:CubicBezierSegment
-                    Point1="0,55.5333321362734"
-                    Point2="0,59.5333321362734"
-                    Point3="4,59.5333321362734" />
+                    Point1="0,24.8333337306975"
+                    Point2="0,28.8333337306975"
+                    Point3="4,28.8333337306975" />
                   <mssgle:LineSegment
-                    End="142.299998517335,59.5333321362734" />
+                    End="115.000004522502,28.8333337306975" />
                   <mssgle:CubicBezierSegment
-                    Point1="142.299998517335,59.5333321362734"
-                    Point2="146.299998517335,59.5333321362734"
-                    Point3="146.299998517335,63.5333321362734" />
+                    Point1="115.000004522502,28.8333337306975"
+                    Point2="119.000004522502,28.8333337306975"
+                    Point3="119.000004522502,32.8333337306975" />
                   <mssgle:LineSegment
-                    End="146.299998517335,111.566664272547" />
+                    End="119.000004522502,50.166667461395" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <EdgeLayout
+          Id="Package\Load Raw Data Into Brightlearn Staging Database.Paths[Data Conversion Output]"
+          TopLeft="587.5,256">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="-31.000006005168,70.999996811152"
+              Start="0,0"
+              End="-31.000006005168,63.499996811152">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,31.499998405576" />
+                  <mssgle:CubicBezierSegment
+                    Point1="0,31.499998405576"
+                    Point2="0,35.499998405576"
+                    Point3="-4,35.499998405576" />
+                  <mssgle:LineSegment
+                    End="-27.000006005168,35.499998405576" />
+                  <mssgle:CubicBezierSegment
+                    Point1="-27.000006005168,35.499998405576"
+                    Point2="-31.000006005168,35.499998405576"
+                    Point3="-31.000006005168,39.499998405576" />
+                  <mssgle:LineSegment
+                    End="-31.000006005168,63.499996811152" />
                 </mssgle:SegmentCollection>
               </mssgle:Curve.Segments>
             </mssgle:Curve>
