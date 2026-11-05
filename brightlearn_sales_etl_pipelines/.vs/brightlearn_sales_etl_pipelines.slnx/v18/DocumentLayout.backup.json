@@ -3,8 +3,8 @@
   "WorkspaceRootPath": "C:\\Users\\House-Khulu\\Desktop\\PRJS\\brightlearn-de-exam--Mzimkhulu---Mthethwa-\\brightlearn_sales_etl_pipelines\\",
   "Documents": [
     {
-      "AbsoluteMoniker": "D:0:0:{8EBE21F9-EB6D-EA6D-7D5E-14E28D2014F7}|brightlearn_sales_etl_pipelines.dtproj|C:\\Users\\House-Khulu\\Desktop\\PRJS\\brightlearn-de-exam--Mzimkhulu---Mthethwa-\\brightlearn_sales_etl_pipelines\\0.2.create_load_stg_dim_customer.dtsx||{CC84AFBD-DA02-46F4-8623-9F07E5569EDB}|Design",
-      "RelativeMoniker": "D:0:0:{8EBE21F9-EB6D-EA6D-7D5E-14E28D2014F7}|brightlearn_sales_etl_pipelines.dtproj|solutionrelative:0.2.create_load_stg_dim_customer.dtsx||{CC84AFBD-DA02-46F4-8623-9F07E5569EDB}|Design"
+      "AbsoluteMoniker": "D:0:0:{8EBE21F9-EB6D-EA6D-7D5E-14E28D2014F7}|brightlearn_sales_etl_pipelines.dtproj|C:\\Users\\House-Khulu\\Desktop\\PRJS\\brightlearn-de-exam--Mzimkhulu---Mthethwa-\\brightlearn_sales_etl_pipelines\\0.9.create_load_stg_dim_payment_method.dtsx||{CC84AFBD-DA02-46F4-8623-9F07E5569EDB}|Design",
+      "RelativeMoniker": "D:0:0:{8EBE21F9-EB6D-EA6D-7D5E-14E28D2014F7}|brightlearn_sales_etl_pipelines.dtproj|solutionrelative:0.9.create_load_stg_dim_payment_method.dtsx||{CC84AFBD-DA02-46F4-8623-9F07E5569EDB}|Design"
     }
   ],
   "DocumentGroupContainers": [
@@ -19,13 +19,13 @@
             {
               "$type": "Document",
               "DocumentIndex": 0,
-              "Title": "0.2.create_load_stg_dim_customer.dtsx [Design]",
-              "DocumentMoniker": "C:\\Users\\House-Khulu\\Desktop\\PRJS\\brightlearn-de-exam--Mzimkhulu---Mthethwa-\\brightlearn_sales_etl_pipelines\\0.2.create_load_stg_dim_customer.dtsx",
-              "RelativeDocumentMoniker": "0.2.create_load_stg_dim_customer.dtsx",
-              "ToolTip": "C:\\Users\\House-Khulu\\Desktop\\PRJS\\brightlearn-de-exam--Mzimkhulu---Mthethwa-\\brightlearn_sales_etl_pipelines\\0.2.create_load_stg_dim_customer.dtsx [Design]",
-              "RelativeToolTip": "0.2.create_load_stg_dim_customer.dtsx [Design]",
+              "Title": "0.9.create_load_stg_dim_payment_method.dtsx [Design]",
+              "DocumentMoniker": "C:\\Users\\House-Khulu\\Desktop\\PRJS\\brightlearn-de-exam--Mzimkhulu---Mthethwa-\\brightlearn_sales_etl_pipelines\\0.9.create_load_stg_dim_payment_method.dtsx",
+              "RelativeDocumentMoniker": "0.9.create_load_stg_dim_payment_method.dtsx",
+              "ToolTip": "C:\\Users\\House-Khulu\\Desktop\\PRJS\\brightlearn-de-exam--Mzimkhulu---Mthethwa-\\brightlearn_sales_etl_pipelines\\0.9.create_load_stg_dim_payment_method.dtsx [Design]",
+              "RelativeToolTip": "0.9.create_load_stg_dim_payment_method.dtsx [Design]",
               "Icon": "00000000-0000-0000-0000-000000000000.000000|iVBORw0KGgoAAAANSUhEUgAAABAAAAAQCAYAAAAf8/9hAAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8YQUAAAAJcEhZcwAADsMAAA7DAcdvqGQAAAFTSURBVDhPY2QAgqUbD/8H0bjAu49fGG7fvZ8\u002BqTFrFlQIAv7/h\u002BgDGfDv71\u002BcePKi7f9NPZP/59VPSwNrQAJMUJogaK0pZDh\u002B6uxMdEOINqC6pR9MgwwBM6CABUqDQcWCa1AWA0NHghac//k9G0NcZAiYvWj5GjANAxgu\u002BC2rAcYwAGJz6NkxZEe7QUVQAYYBrI9vgDEMwPhffkEFsAFCsfDp\u002B9//D98jYgOqDQwIBiLI5vc/GBjefP/PwMLGARVFABQDQIEGwyCArPnNdwaGf1iSG85ARNb8\u002BhsDwweQAb\u002BBAmgAZyAia371lYHh7MnrDI9/yzA4hhQwlM29/J/BeCbYPSjpABT3MJvf//jP8BZoK4j95TfE7SD5hy\u002B\u002BMFy5846hCyyCZMDUpbugLFxABq75zPU3UDGoAaDchp7C0AHI6TDNyAaAszNRAOpnFHA2nREAjMTvHMVXB8cAAAAASUVORK5CYII=",
-              "WhenOpened": "2026-11-04T14:08:11.82Z",
+              "WhenOpened": "2026-11-05T20:19:21.934Z",
               "EditorCaption": " [Design]"
             }
           ]

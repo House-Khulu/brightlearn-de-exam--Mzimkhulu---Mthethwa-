@@ -19,9 +19,8 @@ BEGIN
 
     CREATE TABLE [stg_brightlearn_sales].[dbo].[stg_dim_location] (
 
-        [location_key] INT IDENTITY(1,1) PRIMARY KEY NOT NULL,
-        [customer_city] VARCHAR (100) NOT NULL,
-        [customer_province] VARCHAR (100) NOT NULL,
+        [customer_city] VARCHAR (100),
+        [customer_province] VARCHAR (100),
         [created_date] DATETIME2(0) NOT NULL DEFAULT GETDATE(),
         [modified_date] DATETIME2(0) NOT NULL DEFAULT GETDATE()
     );
@@ -43,8 +42,8 @@ INSERT INTO [stg_brightlearn_sales].[dbo].[stg_dim_location]
 
 
 SELECT DISTINCT
-      COALESCE (r.[customer_city],'Unknown'),
-      COALESCE (r.[customer_province], 'Unknown')
+      r.[customer_city],
+      r.[customer_province]
 FROM [stg_brightlearn_sales].[dbo].[brightlearn_raw_data] r
 WHERE NOT EXISTS
 (
@@ -61,5 +60,6 @@ GO
 -----------------------
 
 SELECT * FROM [stg_brightlearn_sales].[dbo].[stg_dim_location];
+
 
 

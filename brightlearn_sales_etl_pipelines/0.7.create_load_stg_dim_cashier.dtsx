@@ -1,0 +1,261 @@
+﻿<?xml version="1.0"?>
+<DTS:Executable xmlns:DTS="www.microsoft.com/SqlServer/Dts"
+  DTS:refId="Package"
+  DTS:CreationDate="11/5/2026 10:00:41 PM"
+  DTS:CreationName="Microsoft.Package"
+  DTS:CreatorComputerName="LOCALHOST"
+  DTS:CreatorName="LOCALHOST\House-Khulu"
+  DTS:DTSID="{055D2052-98C0-494F-97A7-A61E20E4D8F8}"
+  DTS:ExecutableType="Microsoft.Package"
+  DTS:LastModifiedProductVersion="17.0.1016.0"
+  DTS:LocaleID="7177"
+  DTS:ObjectName="Package1"
+  DTS:PackageType="5"
+  DTS:VersionBuild="4"
+  DTS:VersionGUID="{F98B8DF6-717E-4355-8906-62CB02B0D866}">
+  <DTS:Property
+    DTS:Name="PackageFormatVersion">8</DTS:Property>
+  <DTS:ConnectionManagers>
+    <DTS:ConnectionManager
+      DTS:refId="Package.ConnectionManagers[Localhost.stg_brightlearn_sales]"
+      DTS:CreationName="OLEDB"
+      DTS:DTSID="{21614526-6771-4FC7-A4C4-9DA227349E1D}"
+      DTS:ObjectName="Localhost.stg_brightlearn_sales">
+      <DTS:ObjectData>
+        <DTS:ConnectionManager
+          DTS:ConnectRetryCount="1"
+          DTS:ConnectRetryInterval="5"
+          DTS:ConnectionString="Data Source=Localhost;Initial Catalog=stg_brightlearn_sales;Provider=SQLOLEDB.1;Integrated Security=SSPI;Application Name=SSIS-Package1-{21614526-6771-4FC7-A4C4-9DA227349E1D}Localhost.stg_brightlearn_sales;Auto Translate=False;" />
+      </DTS:ObjectData>
+    </DTS:ConnectionManager>
+  </DTS:ConnectionManagers>
+  <DTS:Variables />
+  <DTS:Executables>
+    <DTS:Executable
+      DTS:refId="Package\Create And Load Staging Dim Cashier"
+      DTS:CreationName="Microsoft.Pipeline"
+      DTS:Description="Data Flow Task"
+      DTS:DTSID="{5e742f38-afc8-44f9-9197-909f21b7ec12}"
+      DTS:ExecutableType="Microsoft.Pipeline"
+      DTS:LocaleID="-1"
+      DTS:ObjectName="Create And Load Staging Dim Cashier"
+      DTS:TaskContact="Performs high-performance data extraction, transformation and loading;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1">
+      <DTS:Variables />
+      <DTS:ObjectData>
+        <pipeline
+          version="1" />
+      </DTS:ObjectData>
+    </DTS:Executable>
+    <DTS:Executable
+      DTS:refId="Package\Create Staging Dim Cashier"
+      DTS:CreationName="Microsoft.ExecuteSQLTask"
+      DTS:Description="Execute SQL Task"
+      DTS:DTSID="{b998d920-d84e-4ef6-b6b2-6e07e23b0599}"
+      DTS:ExecutableType="Microsoft.ExecuteSQLTask"
+      DTS:LocaleID="-1"
+      DTS:ObjectName="Create Staging Dim Cashier"
+      DTS:TaskContact="Execute SQL Task; Microsoft Corporation; SQL Server 2025; © 2025 Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1"
+      DTS:ThreadHint="0">
+      <DTS:Variables />
+      <DTS:ObjectData>
+        <SQLTask:SqlTaskData
+          SQLTask:Connection="{21614526-6771-4FC7-A4C4-9DA227349E1D}"
+          SQLTask:SqlStatementSource="/* =========================================================================&#xA;   CREATE stg_dim_cashier Table using the IF NOT EXISTS clause (SAFE RERUN)&#xA;   Database : stg_brightlearn_sales&#xA;   Schema   : dbo&#xA;   ========================================================================= */&#xA;&#xA;IF OBJECT_ID('[stg_brightlearn_sales].[dbo].[stg_dim_cashier ]', 'U') IS NULL&#xA;BEGIN&#xA;&#xA;    CREATE TABLE [stg_brightlearn_sales].[dbo].[stg_dim_cashier] (&#xA;&#xA;        [cashier_name] [nvarchar](50) NOT NULL,&#xA;        [created_date] DATETIME2(0) NOT NULL DEFAULT GETDATE(),&#xA;        [modified_date] DATETIME2(0) NOT NULL DEFAULT GETDATE()&#xA;    );&#xA;&#xA;END;" xmlns:SQLTask="www.microsoft.com/sqlserver/dts/tasks/sqltask" />
+      </DTS:ObjectData>
+    </DTS:Executable>
+    <DTS:Executable
+      DTS:refId="Package\Load Staging Dim Cashier"
+      DTS:CreationName="Microsoft.ExecuteSQLTask"
+      DTS:Description="Execute SQL Task"
+      DTS:DTSID="{1f281f9d-995d-4936-bd85-652c6f799994}"
+      DTS:ExecutableType="Microsoft.ExecuteSQLTask"
+      DTS:LocaleID="-1"
+      DTS:ObjectName="Load Staging Dim Cashier"
+      DTS:TaskContact="Execute SQL Task; Microsoft Corporation; SQL Server 2025; © 2025 Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1"
+      DTS:ThreadHint="0">
+      <DTS:Variables />
+      <DTS:ObjectData>
+        <SQLTask:SqlTaskData
+          SQLTask:Connection="{21614526-6771-4FC7-A4C4-9DA227349E1D}"
+          SQLTask:SqlStatementSource="/* ===================================================================&#xA;   INSERT INTO stg_dim_cashier (SAFE RERUN)&#xA;   1.Used the SELECT DISTINCT Clause to return only unique values&#xA;   2.Then used the WHERE NOT EXISTS clause to avoid data duplication&#xA;   =================================================================== */&#xA;&#xA;INSERT INTO [stg_brightlearn_sales].[dbo].[stg_dim_cashier]&#xA;(&#xA;        [cashier_name]&#xA;)&#xA;&#xA;&#xA;SELECT DISTINCT r.[cashier_name]&#xA;&#xA;FROM [stg_brightlearn_sales].[dbo].[brightlearn_raw_data] r&#xA;WHERE NOT EXISTS&#xA;(&#xA;    SELECT 1&#xA;    FROM [stg_brightlearn_sales].[dbo].[stg_dim_cashier] c&#xA;    WHERE c.[cashier_name] = r.[cashier_name]&#xA;   &#xA;);&#xA;GO" xmlns:SQLTask="www.microsoft.com/sqlserver/dts/tasks/sqltask" />
+      </DTS:ObjectData>
+    </DTS:Executable>
+    <DTS:Executable
+      DTS:refId="Package\Truncate Staging Dim Cashier"
+      DTS:CreationName="Microsoft.ExecuteSQLTask"
+      DTS:Description="Execute SQL Task"
+      DTS:DTSID="{e77e92fb-5f96-4044-a77a-f7fa20937922}"
+      DTS:ExecutableType="Microsoft.ExecuteSQLTask"
+      DTS:LocaleID="-1"
+      DTS:ObjectName="Truncate Staging Dim Cashier"
+      DTS:TaskContact="Execute SQL Task; Microsoft Corporation; SQL Server 2025; © 2025 Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1"
+      DTS:ThreadHint="0">
+      <DTS:Variables />
+      <DTS:ObjectData>
+        <SQLTask:SqlTaskData
+          SQLTask:Connection="{21614526-6771-4FC7-A4C4-9DA227349E1D}"
+          SQLTask:SqlStatementSource="TRUNCATE TABLE [stg_brightlearn_sales].[dbo].[stg_dim_cashier]" xmlns:SQLTask="www.microsoft.com/sqlserver/dts/tasks/sqltask" />
+      </DTS:ObjectData>
+    </DTS:Executable>
+  </DTS:Executables>
+  <DTS:PrecedenceConstraints>
+    <DTS:PrecedenceConstraint
+      DTS:refId="Package.PrecedenceConstraints[Constraint]"
+      DTS:CreationName=""
+      DTS:DTSID="{22d2c0f5-f9cf-409b-b906-9d3d43b70612}"
+      DTS:From="Package\Create And Load Staging Dim Cashier"
+      DTS:LogicalAnd="True"
+      DTS:ObjectName="Constraint"
+      DTS:To="Package\Create Staging Dim Cashier" />
+    <DTS:PrecedenceConstraint
+      DTS:refId="Package.PrecedenceConstraints[Constraint 1]"
+      DTS:CreationName=""
+      DTS:DTSID="{2f7b6191-2336-419f-8a26-1728c80ab3d5}"
+      DTS:From="Package\Create Staging Dim Cashier"
+      DTS:LogicalAnd="True"
+      DTS:ObjectName="Constraint 1"
+      DTS:To="Package\Truncate Staging Dim Cashier" />
+    <DTS:PrecedenceConstraint
+      DTS:refId="Package.PrecedenceConstraints[Constraint 2]"
+      DTS:CreationName=""
+      DTS:DTSID="{37e5cd82-895a-4940-b591-ef52b6632b7f}"
+      DTS:From="Package\Truncate Staging Dim Cashier"
+      DTS:LogicalAnd="True"
+      DTS:ObjectName="Constraint 2"
+      DTS:To="Package\Load Staging Dim Cashier" />
+  </DTS:PrecedenceConstraints>
+  <DTS:DesignTimeProperties><![CDATA[<?xml version="1.0"?>
+<!--This CDATA section contains the layout information of the package. The section includes information such as (x,y) coordinates, width, and height.-->
+<!--If you manually edit this section and make a mistake, you can delete it. -->
+<!--The package will still be able to load normally but the previous layout information will be lost and the designer will automatically re-arrange the elements on the design surface.-->
+<Objects
+  Version="8">
+  <!--Each node below will contain properties that do not affect runtime behavior.-->
+  <Package
+    design-time-name="Package">
+    <LayoutInfo>
+      <GraphLayout
+        Capacity="8" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:assembly="http://schemas.microsoft.com/winfx/2006/xaml">
+        <NodeLayout
+          Size="266,42"
+          Id="Package\Create And Load Staging Dim Cashier"
+          TopLeft="154,81" />
+        <NodeLayout
+          Size="216,42"
+          Id="Package\Create Staging Dim Cashier"
+          TopLeft="350,192" />
+        <NodeLayout
+          Size="207,42"
+          Id="Package\Load Staging Dim Cashier"
+          TopLeft="580,400" />
+        <NodeLayout
+          Size="226,42"
+          Id="Package\Truncate Staging Dim Cashier"
+          TopLeft="459,290" />
+        <EdgeLayout
+          Id="Package.PrecedenceConstraints[Constraint]"
+          TopLeft="287,123">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="171,69"
+              Start="0,0"
+              End="171,61.5">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,30.5" />
+                  <mssgle:CubicBezierSegment
+                    Point1="0,30.5"
+                    Point2="0,34.5"
+                    Point3="4,34.5" />
+                  <mssgle:LineSegment
+                    End="167,34.5" />
+                  <mssgle:CubicBezierSegment
+                    Point1="167,34.5"
+                    Point2="171,34.5"
+                    Point3="171,38.5" />
+                  <mssgle:LineSegment
+                    End="171,61.5" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <EdgeLayout
+          Id="Package.PrecedenceConstraints[Constraint 1]"
+          TopLeft="458,234">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="114,56"
+              Start="0,0"
+              End="114,48.5">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,24" />
+                  <mssgle:CubicBezierSegment
+                    Point1="0,24"
+                    Point2="0,28"
+                    Point3="4,28" />
+                  <mssgle:LineSegment
+                    End="110,28" />
+                  <mssgle:CubicBezierSegment
+                    Point1="110,28"
+                    Point2="114,28"
+                    Point3="114,32" />
+                  <mssgle:LineSegment
+                    End="114,48.5" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <EdgeLayout
+          Id="Package.PrecedenceConstraints[Constraint 2]"
+          TopLeft="572,332">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="111.5,68"
+              Start="0,0"
+              End="111.5,60.5">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,30" />
+                  <mssgle:CubicBezierSegment
+                    Point1="0,30"
+                    Point2="0,34"
+                    Point3="4,34" />
+                  <mssgle:LineSegment
+                    End="107.5,34" />
+                  <mssgle:CubicBezierSegment
+                    Point1="107.5,34"
+                    Point2="111.5,34"
+                    Point3="111.5,38" />
+                  <mssgle:LineSegment
+                    End="111.5,60.5" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+      </GraphLayout>
+    </LayoutInfo>
+  </Package>
+</Objects>]]></DTS:DesignTimeProperties>
+</DTS:Executable>

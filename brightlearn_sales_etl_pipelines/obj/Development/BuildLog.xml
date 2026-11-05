@@ -2,7 +2,7 @@
 <BuildLog xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
   <ProjectInfo>
     <Name>brightlearn_sales_etl_pipelines</Name>
-    <LastWriteTime>2026-11-04T14:18:23.0962588Z</LastWriteTime>
+    <LastWriteTime>2026-11-05T20:23:01.1851529Z</LastWriteTime>
     <LastKnownProtectionLevel>EncryptSensitiveWithUserKey</LastKnownProtectionLevel>
   </ProjectInfo>
   <LastBuildInfos>
@@ -13,7 +13,42 @@
     </ProjectBuildItemInfo>
     <ProjectBuildItemInfo>
       <Name>0.2.create_load_stg_dim_customer.dtsx</Name>
-      <LastWriteTime>2026-11-04T16:40:27.1961641Z</LastWriteTime>
+      <LastWriteTime>2026-11-05T19:26:56.260873Z</LastWriteTime>
+      <LastKnownProtectionLevel>EncryptSensitiveWithUserKey</LastKnownProtectionLevel>
+    </ProjectBuildItemInfo>
+    <ProjectBuildItemInfo>
+      <Name>0.4.create_load_stg_dim_location.dtsx</Name>
+      <LastWriteTime>2026-11-05T19:31:04.6938865Z</LastWriteTime>
+      <LastKnownProtectionLevel>EncryptSensitiveWithUserKey</LastKnownProtectionLevel>
+    </ProjectBuildItemInfo>
+    <ProjectBuildItemInfo>
+      <Name>0.5.create_load_stg_dim_category.dtsx</Name>
+      <LastWriteTime>2026-11-05T19:38:58.3246116Z</LastWriteTime>
+      <LastKnownProtectionLevel>EncryptSensitiveWithUserKey</LastKnownProtectionLevel>
+    </ProjectBuildItemInfo>
+    <ProjectBuildItemInfo>
+      <Name>0.3.create_load_stg_dim_email.dtsx</Name>
+      <LastWriteTime>2026-11-05T19:39:52.8668444Z</LastWriteTime>
+      <LastKnownProtectionLevel>EncryptSensitiveWithUserKey</LastKnownProtectionLevel>
+    </ProjectBuildItemInfo>
+    <ProjectBuildItemInfo>
+      <Name>0.6.create_load_stg_dim_product.dtsx</Name>
+      <LastWriteTime>2026-11-05T19:58:36.0912116Z</LastWriteTime>
+      <LastKnownProtectionLevel>EncryptSensitiveWithUserKey</LastKnownProtectionLevel>
+    </ProjectBuildItemInfo>
+    <ProjectBuildItemInfo>
+      <Name>0.7.create_load_stg_dim_cashier.dtsx</Name>
+      <LastWriteTime>2026-11-05T20:15:21.0576666Z</LastWriteTime>
+      <LastKnownProtectionLevel>EncryptSensitiveWithUserKey</LastKnownProtectionLevel>
+    </ProjectBuildItemInfo>
+    <ProjectBuildItemInfo>
+      <Name>0.8.create_load_stg_dim_store.dtsx</Name>
+      <LastWriteTime>2026-11-05T20:20:35.0202265Z</LastWriteTime>
+      <LastKnownProtectionLevel>EncryptSensitiveWithUserKey</LastKnownProtectionLevel>
+    </ProjectBuildItemInfo>
+    <ProjectBuildItemInfo>
+      <Name>0.9.create_load_stg_dim_payment_method.dtsx</Name>
+      <LastWriteTime>2026-11-05T20:23:11.2149014Z</LastWriteTime>
       <LastKnownProtectionLevel>EncryptSensitiveWithUserKey</LastKnownProtectionLevel>
     </ProjectBuildItemInfo>
   </LastBuildInfos>

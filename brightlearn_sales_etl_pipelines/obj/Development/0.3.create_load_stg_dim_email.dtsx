@@ -1,0 +1,261 @@
+<?xml version="1.0"?>
+<DTS:Executable xmlns:DTS="www.microsoft.com/SqlServer/Dts"
+  DTS:refId="Package"
+  DTS:CreationDate="11/5/2026 8:49:31 PM"
+  DTS:CreationName="Microsoft.Package"
+  DTS:CreatorComputerName="LOCALHOST"
+  DTS:CreatorName="LOCALHOST\House-Khulu"
+  DTS:DTSID="{90B5D23D-5975-4F7A-82D8-8F072DA5D219}"
+  DTS:ExecutableType="Microsoft.Package"
+  DTS:LastModifiedProductVersion="17.0.1016.0"
+  DTS:LocaleID="7177"
+  DTS:ObjectName="0 3 create_load_stg_dim_email"
+  DTS:PackageType="5"
+  DTS:VersionBuild="7"
+  DTS:VersionGUID="{868C4594-B4DF-4229-8412-77BD80828A73}">
+  <DTS:Property
+    DTS:Name="PackageFormatVersion">8</DTS:Property>
+  <DTS:ConnectionManagers>
+    <DTS:ConnectionManager
+      DTS:refId="Package.ConnectionManagers[Localhost.stg_brightlearn_sales]"
+      DTS:CreationName="OLEDB"
+      DTS:DTSID="{9DEBA9BD-0BD7-4874-8E0C-6EF92E972A08}"
+      DTS:ObjectName="Localhost.stg_brightlearn_sales">
+      <DTS:ObjectData>
+        <DTS:ConnectionManager
+          DTS:ConnectRetryCount="1"
+          DTS:ConnectRetryInterval="5"
+          DTS:ConnectionString="Data Source=Localhost;Initial Catalog=stg_brightlearn_sales;Provider=SQLOLEDB.1;Integrated Security=SSPI;Application Name=SSIS-03 create_load_stg_dim_email-{9DEBA9BD-0BD7-4874-8E0C-6EF92E972A08}Localhost.stg_brightlearn_sales;Auto Translate=False;" />
+      </DTS:ObjectData>
+    </DTS:ConnectionManager>
+  </DTS:ConnectionManagers>
+  <DTS:Variables />
+  <DTS:Executables>
+    <DTS:Executable
+      DTS:refId="Package\Create And Load Staging Dim Email"
+      DTS:CreationName="Microsoft.Pipeline"
+      DTS:Description="Data Flow Task"
+      DTS:DTSID="{1e3250c7-b228-4ca7-a3ec-dfa59ff25d54}"
+      DTS:ExecutableType="Microsoft.Pipeline"
+      DTS:LocaleID="-1"
+      DTS:ObjectName="Create And Load Staging Dim Email"
+      DTS:TaskContact="Performs high-performance data extraction, transformation and loading;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1">
+      <DTS:Variables />
+      <DTS:ObjectData>
+        <pipeline
+          version="1" />
+      </DTS:ObjectData>
+    </DTS:Executable>
+    <DTS:Executable
+      DTS:refId="Package\Create Staging Dim Email"
+      DTS:CreationName="Microsoft.ExecuteSQLTask"
+      DTS:Description="Execute SQL Task"
+      DTS:DTSID="{36c5a35a-74e8-4585-8a30-43ba1b562e03}"
+      DTS:ExecutableType="Microsoft.ExecuteSQLTask"
+      DTS:LocaleID="-1"
+      DTS:ObjectName="Create Staging Dim Email"
+      DTS:TaskContact="Execute SQL Task; Microsoft Corporation; SQL Server 2025; © 2025 Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1"
+      DTS:ThreadHint="0">
+      <DTS:Variables />
+      <DTS:ObjectData>
+        <SQLTask:SqlTaskData
+          SQLTask:Connection="{9DEBA9BD-0BD7-4874-8E0C-6EF92E972A08}"
+          SQLTask:SqlStatementSource="/* =========================================================================&#xA;   CREATE stg_dim_email Table using the IF NOT EXISTS clause (SAFE RERUN)&#xA;   Database : stg_brightlearn_sales&#xA;   Schema   : dbo&#xA;   ========================================================================= */&#xA;&#xA;IF OBJECT_ID('[stg_brightlearn_sales].[dbo].[stg_dim_email]', 'U') IS NULL&#xA;BEGIN&#xA;&#xA;    CREATE TABLE [stg_brightlearn_sales].[dbo].[stg_dim_email] (&#xA;&#xA;        [customer_email] [nvarchar](50) NULL,&#xA;        [created_date] DATETIME2(0) NOT NULL DEFAULT GETDATE(),&#xA;        [modified_date] DATETIME2(0) NOT NULL DEFAULT GETDATE()&#xA;    );&#xA;&#xA;END;" xmlns:SQLTask="www.microsoft.com/sqlserver/dts/tasks/sqltask" />
+      </DTS:ObjectData>
+    </DTS:Executable>
+    <DTS:Executable
+      DTS:refId="Package\Load Staging Dim Email"
+      DTS:CreationName="Microsoft.ExecuteSQLTask"
+      DTS:Description="Execute SQL Task"
+      DTS:DTSID="{051dbaba-178b-46a4-ad57-277bab84d695}"
+      DTS:ExecutableType="Microsoft.ExecuteSQLTask"
+      DTS:LocaleID="-1"
+      DTS:ObjectName="Load Staging Dim Email"
+      DTS:TaskContact="Execute SQL Task; Microsoft Corporation; SQL Server 2025; © 2025 Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1"
+      DTS:ThreadHint="0">
+      <DTS:Variables />
+      <DTS:ObjectData>
+        <SQLTask:SqlTaskData
+          SQLTask:Connection="{9DEBA9BD-0BD7-4874-8E0C-6EF92E972A08}"
+          SQLTask:SqlStatementSource="/* ===================================================================&#xA;   INSERT INTO stg_dim_email (SAFE RERUN)&#xA;   1.Used the SELECT DISTINCT Clause to return only unique values&#xA;   2.Then used the WHERE NOT EXISTS clause to avoid data duplication&#xA;   =================================================================== */&#xA;&#xA;INSERT INTO [stg_brightlearn_sales].[dbo].[stg_dim_email]&#xA;(&#xA;        [customer_email]&#xA;)&#xA;&#xA;SELECT DISTINCT&#xA;         r.[customer_email]&#xA;        &#xA;FROM [stg_brightlearn_sales].[dbo].[brightlearn_raw_data] r&#xA;WHERE NOT EXISTS&#xA;(&#xA;    SELECT 1&#xA;    FROM [stg_brightlearn_sales].[dbo].[stg_dim_email] e&#xA;    WHERE e.[customer_email] = r.[customer_email]&#xA;      &#xA;);&#xA;GO&#xA;" xmlns:SQLTask="www.microsoft.com/sqlserver/dts/tasks/sqltask" />
+      </DTS:ObjectData>
+    </DTS:Executable>
+    <DTS:Executable
+      DTS:refId="Package\Truncate Staging Dim Email"
+      DTS:CreationName="Microsoft.ExecuteSQLTask"
+      DTS:Description="Execute SQL Task"
+      DTS:DTSID="{840f5c25-279d-427c-a645-621091ba3105}"
+      DTS:ExecutableType="Microsoft.ExecuteSQLTask"
+      DTS:LocaleID="-1"
+      DTS:ObjectName="Truncate Staging Dim Email"
+      DTS:TaskContact="Execute SQL Task; Microsoft Corporation; SQL Server 2025; © 2025 Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1"
+      DTS:ThreadHint="0">
+      <DTS:Variables />
+      <DTS:ObjectData>
+        <SQLTask:SqlTaskData
+          SQLTask:Connection="{9DEBA9BD-0BD7-4874-8E0C-6EF92E972A08}"
+          SQLTask:SqlStatementSource="TRUNCATE TABLE [stg_brightlearn_sales].[dbo].[stg_dim_email]" xmlns:SQLTask="www.microsoft.com/sqlserver/dts/tasks/sqltask" />
+      </DTS:ObjectData>
+    </DTS:Executable>
+  </DTS:Executables>
+  <DTS:PrecedenceConstraints>
+    <DTS:PrecedenceConstraint
+      DTS:refId="Package.PrecedenceConstraints[Constraint]"
+      DTS:CreationName=""
+      DTS:DTSID="{6f0401be-d31d-4cc6-8946-21fbb1366bd7}"
+      DTS:From="Package\Create And Load Staging Dim Email"
+      DTS:LogicalAnd="True"
+      DTS:ObjectName="Constraint"
+      DTS:To="Package\Create Staging Dim Email" />
+    <DTS:PrecedenceConstraint
+      DTS:refId="Package.PrecedenceConstraints[Constraint 1]"
+      DTS:CreationName=""
+      DTS:DTSID="{23CA8384-9A2C-4B06-ADC8-B394D7B8229E}"
+      DTS:From="Package\Create Staging Dim Email"
+      DTS:LogicalAnd="True"
+      DTS:ObjectName="Constraint 1"
+      DTS:To="Package\Truncate Staging Dim Email" />
+    <DTS:PrecedenceConstraint
+      DTS:refId="Package.PrecedenceConstraints[Constraint 2]"
+      DTS:CreationName=""
+      DTS:DTSID="{F41D16D4-D8E3-4EB0-BE61-C0845E369511}"
+      DTS:From="Package\Truncate Staging Dim Email"
+      DTS:LogicalAnd="True"
+      DTS:ObjectName="Constraint 2"
+      DTS:To="Package\Load Staging Dim Email" />
+  </DTS:PrecedenceConstraints>
+  <DTS:DesignTimeProperties><![CDATA[<?xml version="1.0"?>
+<!--This CDATA section contains the layout information of the package. The section includes information such as (x,y) coordinates, width, and height.-->
+<!--If you manually edit this section and make a mistake, you can delete it. -->
+<!--The package will still be able to load normally but the previous layout information will be lost and the designer will automatically re-arrange the elements on the design surface.-->
+<Objects
+  Version="8">
+  <!--Each node below will contain properties that do not affect runtime behavior.-->
+  <Package
+    design-time-name="Package">
+    <LayoutInfo>
+      <GraphLayout
+        Capacity="8" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:assembly="http://schemas.microsoft.com/winfx/2006/xaml">
+        <NodeLayout
+          Size="255,42"
+          Id="Package\Create And Load Staging Dim Email"
+          TopLeft="149,80" />
+        <NodeLayout
+          Size="225,42"
+          Id="Package\Create Staging Dim Email"
+          TopLeft="348,201" />
+        <NodeLayout
+          Size="217,42"
+          Id="Package\Load Staging Dim Email"
+          TopLeft="514,405" />
+        <NodeLayout
+          Size="216,42"
+          Id="Package\Truncate Staging Dim Email"
+          TopLeft="464,303" />
+        <EdgeLayout
+          Id="Package.PrecedenceConstraints[Constraint]"
+          TopLeft="276.5,122">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="184,79"
+              Start="0,0"
+              End="184,71.5">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,35.5" />
+                  <mssgle:CubicBezierSegment
+                    Point1="0,35.5"
+                    Point2="0,39.5"
+                    Point3="4,39.5" />
+                  <mssgle:LineSegment
+                    End="180,39.5" />
+                  <mssgle:CubicBezierSegment
+                    Point1="180,39.5"
+                    Point2="184,39.5"
+                    Point3="184,43.5" />
+                  <mssgle:LineSegment
+                    End="184,71.5" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <EdgeLayout
+          Id="Package.PrecedenceConstraints[Constraint 1]"
+          TopLeft="460.5,243">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="111.5,60"
+              Start="0,0"
+              End="111.5,52.5">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,26" />
+                  <mssgle:CubicBezierSegment
+                    Point1="0,26"
+                    Point2="0,30"
+                    Point3="4,30" />
+                  <mssgle:LineSegment
+                    End="107.5,30" />
+                  <mssgle:CubicBezierSegment
+                    Point1="107.5,30"
+                    Point2="111.5,30"
+                    Point3="111.5,34" />
+                  <mssgle:LineSegment
+                    End="111.5,52.5" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <EdgeLayout
+          Id="Package.PrecedenceConstraints[Constraint 2]"
+          TopLeft="572,345">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="50.5,60"
+              Start="0,0"
+              End="50.5,52.5">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,26" />
+                  <mssgle:CubicBezierSegment
+                    Point1="0,26"
+                    Point2="0,30"
+                    Point3="4,30" />
+                  <mssgle:LineSegment
+                    End="46.5,30" />
+                  <mssgle:CubicBezierSegment
+                    Point1="46.5,30"
+                    Point2="50.5,30"
+                    Point3="50.5,34" />
+                  <mssgle:LineSegment
+                    End="50.5,52.5" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+      </GraphLayout>
+    </LayoutInfo>
+  </Package>
+</Objects>]]></DTS:DesignTimeProperties>
+</DTS:Executable>
