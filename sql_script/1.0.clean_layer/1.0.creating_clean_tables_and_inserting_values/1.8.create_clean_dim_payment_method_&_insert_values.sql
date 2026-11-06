@@ -55,3 +55,5 @@ GO
 SELECT * FROM [stg_brightlearn_sales].[dbo].[clean_dim_payment_method];
 
 
+
+

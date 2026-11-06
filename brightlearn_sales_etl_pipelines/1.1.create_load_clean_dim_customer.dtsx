@@ -1,0 +1,198 @@
+﻿<?xml version="1.0"?>
+<DTS:Executable xmlns:DTS="www.microsoft.com/SqlServer/Dts"
+  DTS:refId="Package"
+  DTS:CreationDate="11/6/2026 4:57:58 PM"
+  DTS:CreationName="Microsoft.Package"
+  DTS:CreatorComputerName="LOCALHOST"
+  DTS:CreatorName="LOCALHOST\House-Khulu"
+  DTS:DTSID="{14322D1B-D506-43E7-AF88-D68C755B0FAE}"
+  DTS:ExecutableType="Microsoft.Package"
+  DTS:LastModifiedProductVersion="17.0.1016.0"
+  DTS:LocaleID="7177"
+  DTS:ObjectName="1 1 create_load_clean_dim_customer"
+  DTS:PackageType="5"
+  DTS:VersionBuild="8"
+  DTS:VersionGUID="{4290F93A-11D1-4F69-B7B4-28C58F775B2C}">
+  <DTS:Property
+    DTS:Name="PackageFormatVersion">8</DTS:Property>
+  <DTS:ConnectionManagers>
+    <DTS:ConnectionManager
+      DTS:refId="Package.ConnectionManagers[Localhost.stg_brightlearn_sales]"
+      DTS:CreationName="OLEDB"
+      DTS:DTSID="{8D03E2D4-DD4E-4F59-B32A-579D104C9DC5}"
+      DTS:ObjectName="Localhost.stg_brightlearn_sales">
+      <DTS:ObjectData>
+        <DTS:ConnectionManager
+          DTS:ConnectRetryCount="1"
+          DTS:ConnectRetryInterval="5"
+          DTS:ConnectionString="Data Source=Localhost;Initial Catalog=stg_brightlearn_sales;Provider=SQLOLEDB.1;Integrated Security=SSPI;Application Name=SSIS-1 1 create_load_clean_dim_customer-{8D03E2D4-DD4E-4F59-B32A-579D104C9DC5}Localhost.stg_brightlearn_sales;Auto Translate=False;" />
+      </DTS:ObjectData>
+    </DTS:ConnectionManager>
+  </DTS:ConnectionManagers>
+  <DTS:Variables />
+  <DTS:Executables>
+    <DTS:Executable
+      DTS:refId="Package\Create And Load Clean Dim Customer"
+      DTS:CreationName="Microsoft.Pipeline"
+      DTS:Description="Data Flow Task"
+      DTS:DTSID="{0c340f07-c651-42ae-9584-a931603e2182}"
+      DTS:ExecutableType="Microsoft.Pipeline"
+      DTS:LocaleID="-1"
+      DTS:ObjectName="Create And Load Clean Dim Customer"
+      DTS:TaskContact="Performs high-performance data extraction, transformation and loading;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1">
+      <DTS:Variables />
+      <DTS:ObjectData>
+        <pipeline
+          version="1" />
+      </DTS:ObjectData>
+    </DTS:Executable>
+    <DTS:Executable
+      DTS:refId="Package\Create Clean Dim Customer"
+      DTS:CreationName="Microsoft.ExecuteSQLTask"
+      DTS:Description="Execute SQL Task"
+      DTS:DTSID="{05d3869a-30ef-4b43-b1f0-beed3a60691b}"
+      DTS:ExecutableType="Microsoft.ExecuteSQLTask"
+      DTS:LocaleID="-1"
+      DTS:ObjectName="Create Clean Dim Customer"
+      DTS:TaskContact="Execute SQL Task; Microsoft Corporation; SQL Server 2025; © 2025 Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1"
+      DTS:ThreadHint="0">
+      <DTS:Variables />
+      <DTS:ObjectData>
+        <SQLTask:SqlTaskData
+          SQLTask:Connection="{8D03E2D4-DD4E-4F59-B32A-579D104C9DC5}"
+          SQLTask:SqlStatementSource="/* =========================================================================&#xA;   CREATE clean_dim_customer Table using the IF NOT EXISTS clause (SAFE RERUN)&#xA;   Database : stg_brightlearn_sales&#xA;   Schema   : dbo&#xA;   ========================================================================= */&#xA;IF OBJECT_ID('[stg_brightlearn_sales].[dbo].[clean_dim_customer]', 'U') IS NULL&#xA;BEGIN&#xA;&#xA;     CREATE TABLE [stg_brightlearn_sales].[dbo].[clean_dim_customer] (&#xA;        &#xA;        [customer_first_name] [nvarchar](50) NOT NULL,&#xA;        [customer_last_name] [nvarchar](50) NOT NULL,&#xA;        [customer_phone] [nvarchar](50) NOT NULL,&#xA;        [customer_city] [nvarchar](50) NULL,&#xA;&#x9;    [customer_province] [nvarchar](50) NULL,&#xA;        [customer_loyalty_tier] [nvarchar](50) NULL,&#xA;        [created_date] DATETIME2(0) NOT NULL DEFAULT GETDATE(),&#xA;        [modified_date] DATETIME2(0) NOT NULL DEFAULT GETDATE()&#xA;&#xA;)&#xA;END;" xmlns:SQLTask="www.microsoft.com/sqlserver/dts/tasks/sqltask" />
+      </DTS:ObjectData>
+    </DTS:Executable>
+    <DTS:Executable
+      DTS:refId="Package\Load Clean Dim Customer"
+      DTS:CreationName="Microsoft.ExecuteSQLTask"
+      DTS:Description="Execute SQL Task"
+      DTS:DTSID="{d528546d-e002-4b03-bb7c-bd6a268f1168}"
+      DTS:ExecutableType="Microsoft.ExecuteSQLTask"
+      DTS:LocaleID="-1"
+      DTS:ObjectName="Load Clean Dim Customer"
+      DTS:TaskContact="Execute SQL Task; Microsoft Corporation; SQL Server 2025; © 2025 Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1"
+      DTS:ThreadHint="0">
+      <DTS:Variables />
+      <DTS:ObjectData>
+        <SQLTask:SqlTaskData
+          SQLTask:Connection="{8D03E2D4-DD4E-4F59-B32A-579D104C9DC5}"
+          SQLTask:SqlStatementSource="/* ================================================================================================&#xA;   INSERT INTO clean_dim_customer (SAFE RERUN)&#xA;   1.SELECT DISTINCT Clause to return only unique values&#xA;   2.COALESCE function to replace the NULLs with the &quot;UNKNOWN&quot;&#xA;   3.TRIM fucntion to remove unwanted spaces&#xA;   4.UPPER fucntion to Capitalize all the characters&#xA;   5.CONVERT fucntion to accomodate the &quot;UNKNOWN&quot; value while using COALESCE from the customer_phone&#xA;   6.WHERE NOT EXISTS clause to avoid data duplication&#xA;   =================================================================== */&#xA;&#xA;WITH cleaned_customer AS (&#xA;&#xA;SELECT DISTINCT&#xA;&#xA;                COALESCE(TRIM(UPPER(customer_first_name)),'UNKNOWN') AS customer_first_name,&#xA;&#xA;                COALESCE(TRIM(UPPER(customer_last_name)),'UNKNOWN') AS customer_last_name,&#xA;&#xA;                COALESCE(CONVERT(nvarchar(50), customer_phone),'UNKNOWN') AS customer_phone, &#xA;&#xA;                COALESCE(TRIM(UPPER(customer_city)),'UNKNOWN') AS customer_city, &#xA;    &#xA;                COALESCE(TRIM(UPPER(customer_province)),'UNKNOWN') AS customer_province, &#xA;    &#xA;                COALESCE(TRIM(UPPER(customer_loyalty_tier)),'UNKNOWN') AS customer_loyalty_tier &#xA;&#xA;FROM [stg_brightlearn_sales].[dbo].[stg_dim_customer] &#xA;                &#xA;)&#xA;&#xA;&#xA;INSERT INTO [stg_brightlearn_sales].[dbo].[clean_dim_customer]&#xA;(&#xA;         [customer_first_name],&#xA;         [customer_last_name],&#xA;         [customer_phone],&#xA;         [customer_city],&#xA;         [customer_province],&#xA;         [customer_loyalty_tier]&#xA;)&#xA;&#xA;-- From the CTE query&#xA;SELECT * FROM cleaned_customer&#xA;&#xA;WHERE NOT EXISTS&#xA;(&#xA;    SELECT 1&#xA;    FROM [stg_brightlearn_sales].[dbo].[clean_dim_customer] c&#xA;&#xA;    WHERE c.[customer_first_name] = customer_first_name&#xA;      AND c.[customer_last_name] = customer_last_name&#xA;      AND c.[customer_phone] = customer_phone&#xA;      AND c.[customer_city] = customer_city&#xA;      AND c.[customer_province] = customer_province&#xA;      AND c.[customer_loyalty_tier] = customer_loyalty_tier&#xA;);&#xA;" xmlns:SQLTask="www.microsoft.com/sqlserver/dts/tasks/sqltask" />
+      </DTS:ObjectData>
+    </DTS:Executable>
+  </DTS:Executables>
+  <DTS:PrecedenceConstraints>
+    <DTS:PrecedenceConstraint
+      DTS:refId="Package.PrecedenceConstraints[Constraint]"
+      DTS:CreationName=""
+      DTS:DTSID="{95cb9f8a-3866-494f-b2e7-1e1422857d7f}"
+      DTS:From="Package\Create And Load Clean Dim Customer"
+      DTS:LogicalAnd="True"
+      DTS:ObjectName="Constraint"
+      DTS:To="Package\Create Clean Dim Customer" />
+    <DTS:PrecedenceConstraint
+      DTS:refId="Package.PrecedenceConstraints[Constraint 1]"
+      DTS:CreationName=""
+      DTS:DTSID="{D99B14E6-1023-4DDC-B793-9087260EFAAF}"
+      DTS:From="Package\Create Clean Dim Customer"
+      DTS:LogicalAnd="True"
+      DTS:ObjectName="Constraint 1"
+      DTS:To="Package\Load Clean Dim Customer" />
+  </DTS:PrecedenceConstraints>
+  <DTS:DesignTimeProperties><![CDATA[<?xml version="1.0"?>
+<!--This CDATA section contains the layout information of the package. The section includes information such as (x,y) coordinates, width, and height.-->
+<!--If you manually edit this section and make a mistake, you can delete it. -->
+<!--The package will still be able to load normally but the previous layout information will be lost and the designer will automatically re-arrange the elements on the design surface.-->
+<Objects
+  Version="8">
+  <!--Each node below will contain properties that do not affect runtime behavior.-->
+  <Package
+    design-time-name="Package">
+    <LayoutInfo>
+      <GraphLayout
+        Capacity="8" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:assembly="http://schemas.microsoft.com/winfx/2006/xaml">
+        <NodeLayout
+          Size="267,42"
+          Id="Package\Create And Load Clean Dim Customer"
+          TopLeft="154,81" />
+        <NodeLayout
+          Size="217,42"
+          Id="Package\Create Clean Dim Customer"
+          TopLeft="344,182" />
+        <NodeLayout
+          Size="208,42"
+          Id="Package\Load Clean Dim Customer"
+          TopLeft="483,321" />
+        <EdgeLayout
+          Id="Package.PrecedenceConstraints[Constraint]"
+          TopLeft="287.5,123">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="165,59"
+              Start="0,0"
+              End="165,51.5">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,25.5" />
+                  <mssgle:CubicBezierSegment
+                    Point1="0,25.5"
+                    Point2="0,29.5"
+                    Point3="4,29.5" />
+                  <mssgle:LineSegment
+                    End="161,29.5" />
+                  <mssgle:CubicBezierSegment
+                    Point1="161,29.5"
+                    Point2="165,29.5"
+                    Point3="165,33.5" />
+                  <mssgle:LineSegment
+                    End="165,51.5" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <EdgeLayout
+          Id="Package.PrecedenceConstraints[Constraint 1]"
+          TopLeft="452.5,224">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="134.5,97"
+              Start="0,0"
+              End="134.5,89.5">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,44.5" />
+                  <mssgle:CubicBezierSegment
+                    Point1="0,44.5"
+                    Point2="0,48.5"
+                    Point3="4,48.5" />
+                  <mssgle:LineSegment
+                    End="130.5,48.5" />
+                  <mssgle:CubicBezierSegment
+                    Point1="130.5,48.5"
+                    Point2="134.5,48.5"
+                    Point3="134.5,52.5" />
+                  <mssgle:LineSegment
+                    End="134.5,89.5" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+      </GraphLayout>
+    </LayoutInfo>
+  </Package>
+</Objects>]]></DTS:DesignTimeProperties>
+</DTS:Executable>

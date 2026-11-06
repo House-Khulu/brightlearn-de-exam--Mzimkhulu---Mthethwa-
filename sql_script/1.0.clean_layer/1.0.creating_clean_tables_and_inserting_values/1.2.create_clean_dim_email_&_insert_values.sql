@@ -31,20 +31,29 @@ END;
    3.TRIM fucntion to remove unwanted spaces
    =================================================================== */
 
+
+WITH cleaned_email AS (
+
+
+    SELECT DISTINCT
+            COALESCE(TRIM(customer_email),'UNKNOWN') AS customer_email 
+
+    FROM [stg_brightlearn_sales].[dbo].[stg_dim_email]
+)
+
 INSERT INTO [stg_brightlearn_sales].[dbo].[clean_dim_email]
 (
         [customer_email]
 )
 
-SELECT DISTINCT
-         COALESCE(TRIM(customer_email),'UNKNOWN') AS customer_email 
-        
-FROM [stg_brightlearn_sales].[dbo].[stg_dim_email] e
+-- From the CTE query
+SELECT * FROM cleaned_email
+       
 WHERE NOT EXISTS
 (
     SELECT 1
     FROM [stg_brightlearn_sales].[dbo].[clean_dim_email] c
-    WHERE c.[customer_email] = COALESCE(TRIM(customer_email),'UNKNOWN')
+    WHERE c.[customer_email] = customer_email
       
 );
 GO
@@ -54,3 +63,4 @@ GO
 -----------------------
 
 SELECT * FROM [stg_brightlearn_sales].[dbo].[clean_dim_email];
+

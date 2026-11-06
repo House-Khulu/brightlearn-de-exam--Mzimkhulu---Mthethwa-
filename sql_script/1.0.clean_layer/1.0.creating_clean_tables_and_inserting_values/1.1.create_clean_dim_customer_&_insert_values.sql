@@ -43,8 +43,25 @@ END;
    6.WHERE NOT EXISTS clause to avoid data duplication
    =================================================================== */
 
+WITH cleaned_customer AS (
 
+SELECT DISTINCT
 
+                COALESCE(TRIM(UPPER(customer_first_name)),'UNKNOWN') AS customer_first_name,
+
+                COALESCE(TRIM(UPPER(customer_last_name)),'UNKNOWN') AS customer_last_name,
+
+                COALESCE(CONVERT(nvarchar(50), customer_phone),'UNKNOWN') AS customer_phone, 
+
+                COALESCE(TRIM(UPPER(customer_city)),'UNKNOWN') AS customer_city, 
+    
+                COALESCE(TRIM(UPPER(customer_province)),'UNKNOWN') AS customer_province, 
+    
+                COALESCE(TRIM(UPPER(customer_loyalty_tier)),'UNKNOWN') AS customer_loyalty_tier 
+
+FROM [stg_brightlearn_sales].[dbo].[stg_dim_customer] 
+                
+)
 
 
 INSERT INTO [stg_brightlearn_sales].[dbo].[clean_dim_customer]
@@ -57,34 +74,21 @@ INSERT INTO [stg_brightlearn_sales].[dbo].[clean_dim_customer]
          [customer_loyalty_tier]
 )
 
+-- From the CTE query
+SELECT * FROM cleaned_customer
 
-SELECT DISTINCT
-    COALESCE(TRIM(UPPER(customer_first_name)),'UNKNOWN') AS customer_first_name,
-
-    COALESCE(TRIM(UPPER(customer_last_name)),'UNKNOWN') AS customer_last_name,
-
-    COALESCE(CONVERT(nvarchar(50), customer_phone),'UNKNOWN') AS customer_phone, 
-
-    COALESCE(TRIM(UPPER(customer_city)),'UNKNOWN') AS customer_city, 
-    
-    COALESCE(TRIM(UPPER(customer_province)),'UNKNOWN') AS customer_province, 
-    
-    COALESCE(TRIM(UPPER(customer_loyalty_tier)),'UNKNOWN') AS customer_loyalty_tier   
-
-FROM [stg_brightlearn_sales].[dbo].[stg_dim_customer] 
 WHERE NOT EXISTS
 (
     SELECT 1
     FROM [stg_brightlearn_sales].[dbo].[clean_dim_customer] c
-    WHERE c.[customer_first_name] = COALESCE(TRIM(UPPER(customer_first_name)),'UNKNOWN') 
-      AND c.[customer_last_name] = COALESCE(TRIM(UPPER(customer_last_name)),'UNKNOWN') 
-      AND c.[customer_phone] = COALESCE(CONVERT(nvarchar(50), customer_phone),'UNKNOWN') 
-      AND c.[customer_city] = COALESCE(TRIM(UPPER(customer_city)),'UNKNOWN') 
-      AND c.[customer_province] = COALESCE(TRIM(UPPER(customer_province)),'UNKNOWN') 
-      AND c.[customer_loyalty_tier] = COALESCE(TRIM(UPPER(customer_loyalty_tier)),'UNKNOWN') 
-      
+
+    WHERE c.[customer_first_name] = customer_first_name
+      AND c.[customer_last_name] = customer_last_name
+      AND c.[customer_phone] = customer_phone
+      AND c.[customer_city] = customer_city
+      AND c.[customer_province] = customer_province
+      AND c.[customer_loyalty_tier] = customer_loyalty_tier
 );
-GO
 
 --------------------------
 --View clean_dim_customer
@@ -92,6 +96,3 @@ GO
 
 SELECT * FROM [stg_brightlearn_sales].[dbo].[clean_dim_customer];
 
-
-  
-         
