@@ -17,7 +17,6 @@ BEGIN
 
     CREATE TABLE [stg_brightlearn_sales].[dbo].[clean_dim_email] (
 
-        [email_key] INT IDENTITY(1,1) PRIMARY KEY NOT NULL,
         [customer_email] [nvarchar](50) NOT NULL,
         [created_date] DATETIME2(0) NOT NULL DEFAULT GETDATE(),
         [modified_date] DATETIME2(0) NOT NULL DEFAULT GETDATE()

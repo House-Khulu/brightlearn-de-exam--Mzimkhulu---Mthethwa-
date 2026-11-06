@@ -15,7 +15,6 @@ BEGIN
 
     CREATE TABLE [stg_brightlearn_sales].[dbo].[clean_dim_cashier] (
 
-        [cashier_key] INT IDENTITY (1,1) PRIMARY KEY NOT NULL,
         [cashier_name] [nvarchar](50) NOT NULL,
         [created_date] DATETIME2(0) NOT NULL DEFAULT GETDATE(),
         [modified_date] DATETIME2(0) NOT NULL DEFAULT GETDATE()

@@ -20,7 +20,6 @@ BEGIN
 
     CREATE TABLE [stg_brightlearn_sales].[dbo].[clean_dim_store] (
 
-        [store_key] INT IDENTITY(1,1) PRIMARY KEY NOT NULL,
         [store_name] [nvarchar](50) NOT NULL,
 	    [store_city] [nvarchar](50) NOT NULL,
 	    [store_province] [nvarchar](50) NOT NULL,

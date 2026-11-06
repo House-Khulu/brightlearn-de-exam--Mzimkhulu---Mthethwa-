@@ -21,7 +21,6 @@ BEGIN
 
      CREATE TABLE [stg_brightlearn_sales].[dbo].[clean_dim_customer] (
         
-        [customer_key] INT IDENTITY(1,1) PRIMARY KEY NOT NULL,
         [customer_first_name] [nvarchar](50) NOT NULL,
         [customer_last_name] [nvarchar](50) NOT NULL,
         [customer_phone] [nvarchar](50) NOT NULL,

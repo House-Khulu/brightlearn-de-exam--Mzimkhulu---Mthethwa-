@@ -14,7 +14,7 @@ IF OBJECT_ID('[stg_brightlearn_sales].[dbo].[clean_dim_category]', 'U') IS NULL
 BEGIN
 
     CREATE TABLE [stg_brightlearn_sales].[dbo].[clean_dim_category] (
-        [category_key] INT IDENTITY(1,1) PRIMARY KEY NOT NULL,
+    
         [category] [nvarchar](50) NOT NULL,
         [created_date] DATETIME2(0) NOT NULL DEFAULT GETDATE(),
         [modified_date] DATETIME2(0) NOT NULL DEFAULT GETDATE()

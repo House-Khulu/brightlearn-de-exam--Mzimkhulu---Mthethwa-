@@ -19,7 +19,6 @@ BEGIN
 
     CREATE TABLE [stg_brightlearn_sales].[dbo].[clean_dim_product] (
 
-        [product_key] INT IDENTITY(1,1) PRIMARY KEY NOT NULL,
         [product_name] [nvarchar](50) NOT NULL,
 	    [sub_category] [nvarchar](50) NOT NULL,
 	    [sku] [nvarchar](50) NOT NULL,
