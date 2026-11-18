@@ -16,8 +16,7 @@ BEGIN
     CREATE TABLE [stg_brightlearn_sales].[dbo].[stg_dim_cashier] (
 
         [cashier_name] [nvarchar](50) NOT NULL,
-        [created_date] DATETIME2(0) NOT NULL DEFAULT GETDATE(),
-        [modified_date] DATETIME2(0) NOT NULL DEFAULT GETDATE()
+        [date_loaded] DATETIME2(0) NOT NULL DEFAULT GETDATE()
     );
 
 END;

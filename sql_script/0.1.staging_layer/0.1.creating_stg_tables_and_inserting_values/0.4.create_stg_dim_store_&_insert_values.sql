@@ -20,13 +20,12 @@ BEGIN
 
     CREATE TABLE [stg_brightlearn_sales].[dbo].[stg_dim_store] (
 
-        [store_name] VARCHAR (100) NOT NULL,
-        [store_city] VARCHAR (100) NOT NULL,
-        [store_province] VARCHAR (100) NOT NULL,
-        [store_region] VARCHAR (100) NOT NULL,
-        [store_manager] VARCHAR (100) NOT NULL,
-        [created_date] DATETIME2(0) NOT NULL DEFAULT GETDATE(),
-        [modified_date] DATETIME2(0) NOT NULL DEFAULT GETDATE()
+        [store_name] VARCHAR (100),
+        [store_city] VARCHAR (100) ,
+        [store_province] VARCHAR (100),
+        [store_region] VARCHAR (100),
+        [store_manager] VARCHAR (100) ,
+        [date_loaded] DATETIME2(0) NOT NULL DEFAULT GETDATE()
     );
 
 END;
