@@ -27,7 +27,7 @@ BEGIN
       [customer_email] [nvarchar](50),
       [customer_phone] [nvarchar](50),
       [customer_city] [nvarchar](50),
-	   [customer_province] [nvarchar](50),
+	[customer_province] [nvarchar](50),
       [customer_loyalty_tier] [nvarchar](50),
       [date_loaded] DATETIME2(0) NOT NULL DEFAULT GETDATE()
 

@@ -2,10 +2,11 @@
 --Checking for distinct product
 --------------------------------
  SELECT DISTINCT 
-       [product_name]
-      ,[sub_category]
-      ,[sku]
-      ,[supplier]
+        [product_name],
+        [category],
+        [sub_category],
+        [sku],
+        [supplier]
   FROM [stg_brightlearn_sales].[dbo].[stg_dim_product];
 
 /* =========================================================================
@@ -19,12 +20,12 @@ BEGIN
 
     CREATE TABLE [stg_brightlearn_sales].[dbo].[clean_dim_product] (
 
-        [product_name] [nvarchar](50) NOT NULL,
-	    [sub_category] [nvarchar](50) NOT NULL,
-	    [sku] [nvarchar](50) NOT NULL,
-        [supplier] [nvarchar](50) NOT NULL,
-        [created_date] DATETIME2(0) NOT NULL DEFAULT GETDATE(),
-        [modified_date] DATETIME2(0) NOT NULL DEFAULT GETDATE()
+        [product_name] [nvarchar](50),
+        [category] [nvarchar](50),
+	    [sub_category] [nvarchar](50),
+	    [sku] [nvarchar](50),
+        [supplier] [nvarchar](50),
+        [date_loaded] DATETIME2(0) NOT NULL DEFAULT GETDATE()
     );
 
 END;
@@ -36,29 +37,45 @@ END;
    3.WHERE NOT EXISTS clause to avoid data duplication
    =================================================================== */
 
+WITH product_cte AS (
+
+        SELECT DISTINCT
+
+        TRIM(UPPER(product_name)) AS product_name,
+
+        COALESCE(TRIM(UPPER(category)), 'UNKNOWN') AS category,
+
+        TRIM(UPPER(sub_category)) AS sub_category,
+
+        TRIM(UPPER(sku)) AS sku, 
+
+        TRIM(UPPER(supplier)) AS supplier
+
+        FROM [stg_brightlearn_sales].[dbo].[stg_dim_product] 
+)   
+
 INSERT INTO [stg_brightlearn_sales].[dbo].[clean_dim_product]
 (
-          [product_name]
-         ,[sub_category]
-         ,[sku]
-         ,[supplier]
+        [product_name],
+        [category],
+        [sub_category],
+        [sku],
+        [supplier]
 )
 
-SELECT DISTINCT
-           TRIM(UPPER(r.[product_name])) AS product_name,
-           TRIM(UPPER(r.[sub_category])) AS sub_category,
-           TRIM(UPPER(r.[sku])) AS SKU,
-           TRIM(UPPER(r.[supplier])) AS supplier
+-- From the CTE query
+SELECT * FROM product_cte
 
-FROM [stg_brightlearn_sales].[dbo].[stg_dim_product] r
+
 WHERE NOT EXISTS
 (
     SELECT 1
     FROM [stg_brightlearn_sales].[dbo].[clean_dim_product] p
-    WHERE p.[product_name] = r.[product_name]
-      AND p.[sub_category] = r.[sub_category]
-      AND p.[sku] = r.[sku]
-      AND p.[supplier] = r.[supplier]
+    WHERE p.[product_name] = [product_name]
+      AND p.[category] = [category]
+      AND p.[sub_category] = [sub_category]
+      AND p.[sku] = [sku]
+      AND p.[supplier] = [supplier]
       
 );
 GO
