@@ -3,6 +3,7 @@
 --------------------------------
  SELECT DISTINCT 
        [product_name]
+      ,[category]
       ,[sub_category]
       ,[sku]
       ,[supplier]
@@ -19,12 +20,12 @@ BEGIN
 
     CREATE TABLE [stg_brightlearn_sales].[dbo].[stg_dim_product] (
 
-        [product_name] [nvarchar](50) NOT NULL,
-	    [sub_category] [nvarchar](50) NOT NULL,
-	    [sku] [nvarchar](50) NOT NULL,
-        [supplier] [nvarchar](50) NOT NULL,
-        [created_date] DATETIME2(0) NOT NULL DEFAULT GETDATE(),
-        [modified_date] DATETIME2(0) NOT NULL DEFAULT GETDATE()
+        [product_name] [nvarchar](50),
+        [category] [nvarchar](50),
+	    [sub_category] [nvarchar](50),
+	    [sku] [nvarchar](50),
+        [supplier] [nvarchar](50),
+        [date_loaded] DATETIME2(0) NOT NULL DEFAULT GETDATE()
     );
 
 END;
@@ -38,17 +39,19 @@ END;
 
 INSERT INTO [stg_brightlearn_sales].[dbo].[stg_dim_product]
 (
-          [product_name]
-         ,[sub_category]
-         ,[sku]
-         ,[supplier]
+        [product_name],
+        [category],
+        [sub_category],
+        [sku],
+        [supplier]
 )
 
 SELECT DISTINCT
-           r.[product_name],
-           r.[sub_category],
-           r.[sku],
-           r.[supplier]
+        r.[product_name],
+        r.[category],
+        r.[sub_category],
+        r.[sku],
+        r.[supplier]
 
 FROM [stg_brightlearn_sales].[dbo].[brightlearn_raw_data] r
 WHERE NOT EXISTS
@@ -56,6 +59,7 @@ WHERE NOT EXISTS
     SELECT 1
     FROM [stg_brightlearn_sales].[dbo].[stg_dim_product] p
     WHERE p.[product_name] = r.[product_name]
+      AND p.[category] = r.[category]
       AND p.[sub_category] = r.[sub_category]
       AND p.[sku] = r.[sku]
       AND p.[supplier] = r.[supplier]
