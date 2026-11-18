@@ -2,12 +2,13 @@
 --Checking for distinct stg_dim_customer
 ---------------------------------------
 SELECT DISTINCT
-         [customer_first_name],
-         [customer_last_name],
-         [customer_phone],
-         [customer_city],
-         [customer_province],
-         [customer_loyalty_tier]
+      [customer_first_name],
+      [customer_last_name],
+      [customer_email],
+      [customer_phone],
+      [customer_city],
+      [customer_province],
+      [customer_loyalty_tier]
   FROM [stg_brightlearn_sales].[dbo].[stg_dim_customer];
  
 
@@ -21,14 +22,14 @@ BEGIN
 
      CREATE TABLE [stg_brightlearn_sales].[dbo].[clean_dim_customer] (
         
-        [customer_first_name] [nvarchar](50) NOT NULL,
-        [customer_last_name] [nvarchar](50) NOT NULL,
-        [customer_phone] [nvarchar](50) NOT NULL,
-        [customer_city] [nvarchar](50) NULL,
-	    [customer_province] [nvarchar](50) NULL,
-        [customer_loyalty_tier] [nvarchar](50) NULL,
-        [created_date] DATETIME2(0) NOT NULL DEFAULT GETDATE(),
-        [modified_date] DATETIME2(0) NOT NULL DEFAULT GETDATE()
+      [customer_first_name] [nvarchar](50),
+      [customer_last_name] [nvarchar](50),
+      [customer_email] [nvarchar](50),
+      [customer_phone] [nvarchar](50),
+      [customer_city] [nvarchar](50),
+	   [customer_province] [nvarchar](50),
+      [customer_loyalty_tier] [nvarchar](50),
+      [date_loaded] DATETIME2(0) NOT NULL DEFAULT GETDATE()
 
 )
 END;
@@ -43,21 +44,23 @@ END;
    6.WHERE NOT EXISTS clause to avoid data duplication
    =================================================================== */
 
-WITH cleaned_customer AS (
+WITH customer_cte AS (
 
 SELECT DISTINCT
 
-                COALESCE(TRIM(UPPER(customer_first_name)),'UNKNOWN') AS customer_first_name,
+      COALESCE(TRIM(UPPER(customer_first_name)),'UNKNOWN') AS customer_first_name,
 
-                COALESCE(TRIM(UPPER(customer_last_name)),'UNKNOWN') AS customer_last_name,
+      COALESCE(TRIM(UPPER(customer_last_name)),'UNKNOWN') AS customer_last_name,
 
-                COALESCE(CONVERT(nvarchar(50), customer_phone),'UNKNOWN') AS customer_phone, 
+      COALESCE(TRIM(UPPER(customer_email)),'UNKNOWN') AS customer_email,
 
-                COALESCE(TRIM(UPPER(customer_city)),'UNKNOWN') AS customer_city, 
+      COALESCE(CONVERT(nvarchar(50), customer_phone),'UNKNOWN') AS customer_phone, 
+
+      COALESCE(TRIM(UPPER(customer_city)),'UNKNOWN') AS customer_city, 
     
-                COALESCE(TRIM(UPPER(customer_province)),'UNKNOWN') AS customer_province, 
+      COALESCE(TRIM(UPPER(customer_province)),'UNKNOWN') AS customer_province, 
     
-                COALESCE(TRIM(UPPER(customer_loyalty_tier)),'UNKNOWN') AS customer_loyalty_tier 
+      COALESCE(TRIM(UPPER(customer_loyalty_tier)),'UNKNOWN') AS customer_loyalty_tier 
 
 FROM [stg_brightlearn_sales].[dbo].[stg_dim_customer] 
                 
@@ -66,24 +69,26 @@ FROM [stg_brightlearn_sales].[dbo].[stg_dim_customer]
 
 INSERT INTO [stg_brightlearn_sales].[dbo].[clean_dim_customer]
 (
-         [customer_first_name],
-         [customer_last_name],
-         [customer_phone],
-         [customer_city],
-         [customer_province],
-         [customer_loyalty_tier]
+      [customer_first_name],
+      [customer_last_name],
+      [customer_email],
+      [customer_phone],
+      [customer_city],
+      [customer_province],
+      [customer_loyalty_tier]
 )
 
 -- From the CTE query
-SELECT * FROM cleaned_customer
+SELECT * FROM customer_cte
 
-WHERE NOT EXISTS
+      WHERE NOT EXISTS
 (
-    SELECT 1
-    FROM [stg_brightlearn_sales].[dbo].[clean_dim_customer] c
+      SELECT 1
+      FROM [stg_brightlearn_sales].[dbo].[clean_dim_customer] c
 
-    WHERE c.[customer_first_name] = customer_first_name
+      WHERE c.[customer_first_name] = customer_first_name
       AND c.[customer_last_name] = customer_last_name
+      AND c.[customer_email] = customer_email
       AND c.[customer_phone] = customer_phone
       AND c.[customer_city] = customer_city
       AND c.[customer_province] = customer_province
