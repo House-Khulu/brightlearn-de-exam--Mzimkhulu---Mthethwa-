@@ -4,6 +4,7 @@
 SELECT DISTINCT
          [customer_first_name],
          [customer_last_name],
+         [customer_email],
          [customer_phone],
          [customer_city],
          [customer_province],
@@ -24,12 +25,12 @@ BEGIN
 
         [customer_first_name] [nvarchar](50) NULL,
         [customer_last_name] [nvarchar](50) NULL,
+        [customer_email] [nvarchar](50) NULL,
         [customer_phone] INT NULL,
         [customer_city] [nvarchar](50) NULL,
 	    [customer_province] [nvarchar](50) NULL,
         [customer_loyalty_tier] [nvarchar](50) NULL,
-        [created_date] DATETIME2(0) NOT NULL DEFAULT GETDATE(),
-        [modified_date] DATETIME2(0) NOT NULL DEFAULT GETDATE()
+        [date_loaded] DATETIME2(0) NOT NULL DEFAULT GETDATE()
     );
 
 END;
@@ -41,21 +42,23 @@ END;
    =================================================================== */
 INSERT INTO [stg_brightlearn_sales].[dbo].[stg_dim_customer]
 (
-         [customer_first_name],
-         [customer_last_name],
-         [customer_phone],
-         [customer_city],
-         [customer_province],
-         [customer_loyalty_tier]
+        [customer_first_name],
+        [customer_last_name],
+        [customer_email],
+        [customer_phone],
+        [customer_city],
+        [customer_province],
+        [customer_loyalty_tier]
 )
 
 SELECT DISTINCT
-         r.[customer_first_name],
-         r.[customer_last_name], 
-         r.[customer_phone],
-         r.[customer_city],
-         r.[customer_province],
-         r.[customer_loyalty_tier]
+        r.[customer_first_name],
+        r.[customer_last_name],
+        r.[customer_email], 
+        r.[customer_phone],
+        r.[customer_city],
+        r.[customer_province],
+        r.[customer_loyalty_tier]
 FROM [stg_brightlearn_sales].[dbo].[brightlearn_raw_data] r
 WHERE NOT EXISTS
 (
@@ -63,6 +66,7 @@ WHERE NOT EXISTS
     FROM [stg_brightlearn_sales].[dbo].[stg_dim_customer] c
     WHERE c.[customer_first_name] = r.[customer_first_name]
       AND c.[customer_last_name] = r.[customer_last_name]
+      AND c.[customer_email] = r.[customer_email]
       AND c.[customer_phone] = r.[customer_phone]
       AND c.[customer_city] = r.[customer_city]
       AND c.[customer_province] = r.[customer_province]
