@@ -13,7 +13,7 @@
 IF OBJECT_ID('[stg_brightlearn_sales].[dbo].[clean_dim_cashier ]','U') IS NULL
 BEGIN
     CREATE TABLE [stg_brightlearn_sales].[dbo].[clean_dim_cashier] (
-
+   
         [cashier_name] [nvarchar](50),
         [date_loaded] DATETIME2(0) NOT NULL DEFAULT GETDATE()
     );
