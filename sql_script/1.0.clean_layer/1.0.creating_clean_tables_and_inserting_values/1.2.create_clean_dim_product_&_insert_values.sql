@@ -64,18 +64,18 @@ INSERT INTO [stg_brightlearn_sales].[dbo].[clean_dim_product]
 )
 
 -- From the CTE query
-SELECT * FROM product_cte
+SELECT * FROM product_cte pc
 
 
 WHERE NOT EXISTS
 (
     SELECT 1
     FROM [stg_brightlearn_sales].[dbo].[clean_dim_product] p
-    WHERE p.[product_name] = [product_name]
-      AND p.[category] = [category]
-      AND p.[sub_category] = [sub_category]
-      AND p.[sku] = [sku]
-      AND p.[supplier] = [supplier]
+    WHERE p.[product_name] = pc.[product_name]
+      AND p.[category] = pc.[category]
+      AND p.[sub_category] = pc.[sub_category]
+      AND p.[sku] = pc.[sku]
+      AND p.[supplier] = pc.[supplier]
       
 );
 GO

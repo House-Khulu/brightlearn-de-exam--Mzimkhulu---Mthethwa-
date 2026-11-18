@@ -79,20 +79,20 @@ INSERT INTO [stg_brightlearn_sales].[dbo].[clean_dim_customer]
 )
 
 -- From the CTE query
-SELECT * FROM customer_cte
+SELECT * FROM customer_cte cc
 
       WHERE NOT EXISTS
 (
       SELECT 1
       FROM [stg_brightlearn_sales].[dbo].[clean_dim_customer] c
 
-      WHERE c.[customer_first_name] = customer_first_name
-      AND c.[customer_last_name] = customer_last_name
-      AND c.[customer_email] = customer_email
-      AND c.[customer_phone] = customer_phone
-      AND c.[customer_city] = customer_city
-      AND c.[customer_province] = customer_province
-      AND c.[customer_loyalty_tier] = customer_loyalty_tier
+      WHERE c.[customer_first_name] = cc.[customer_first_name]
+      AND c.[customer_last_name] = cc.[customer_last_name]
+      AND c.[customer_email] = cc.[customer_email]
+      AND c.[customer_phone] = cc.[customer_phone]
+      AND c.[customer_city] = cc.[customer_city]
+      AND c.[customer_province] = cc.[customer_province]
+      AND c.[customer_loyalty_tier] = cc.[customer_loyalty_tier]
 );
 
 --------------------------

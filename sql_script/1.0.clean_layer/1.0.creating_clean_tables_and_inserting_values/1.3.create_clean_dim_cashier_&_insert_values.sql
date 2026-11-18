@@ -12,12 +12,10 @@
 
 IF OBJECT_ID('[stg_brightlearn_sales].[dbo].[clean_dim_cashier ]', 'U') IS NULL
 BEGIN
-
     CREATE TABLE [stg_brightlearn_sales].[dbo].[clean_dim_cashier] (
 
-        [cashier_name] [nvarchar](50) NOT NULL,
-        [created_date] DATETIME2(0) NOT NULL DEFAULT GETDATE(),
-        [modified_date] DATETIME2(0) NOT NULL DEFAULT GETDATE()
+        [cashier_name] [nvarchar](50),
+        [date_loaded] DATETIME2(0) NOT NULL DEFAULT GETDATE()
     );
 
 END;
@@ -43,7 +41,7 @@ WHERE NOT EXISTS
 (
     SELECT 1
     FROM [stg_brightlearn_sales].[dbo].[clean_dim_cashier] c
-    WHERE c.[cashier_name] = s.[cashier_name]
+    WHERE c.[cashier_name] = TRIM(UPPER(s.[cashier_name]))
    
 );
 GO
